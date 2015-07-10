@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Force Torque Sensor Calibration">
+
+	<executable package_path="vigir_behavior_force_torque_sensor_calibration.force_torque_sensor_calibration_sm" class="ForceTorqueSensorCalibrationSM" />
+	<tagstring>calibration</tagstring>
+	<author>Moritz Schappler</author>
+	<date>Sun Apr 26 2015</date>
+	<description>
+		A behavior that moves the arms and collects data for calibrating the force torque sensors.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

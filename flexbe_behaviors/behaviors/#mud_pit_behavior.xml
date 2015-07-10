@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Mud Pit">
+	<executable package_path="vigir_behavior_mud_pit.mud_pit_sm" class="MudPitSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior that lets the robot crawl through the mud pit of VRC task 2.
+	</description>
+
+	<params>
+		<param type="numeric" name="timefactor" default="0.8" label="Timefactor" hint="How fast a motion is executed (multiplier).">
+			<min value="0.1" />
+			<max value="5.0" />
+		</param>
+	</params>
+
+</behavior>

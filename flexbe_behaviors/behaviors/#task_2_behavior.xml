@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Task 2">
+	<executable package_path="vigir_behavior_task_2.task_2_sm" class="Task2SM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior that lets the robot solve task 2 of the VRC.
+	</description>
+
+	<contains name="Waypoint Movement" />
+	<contains name="Crawl" />
+
+</behavior>

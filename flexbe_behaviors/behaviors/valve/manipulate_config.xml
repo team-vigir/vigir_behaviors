@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Manipulate Configuration">
+	<executable package_path="vigir_behavior_manipulate_config.manipulate_config_sm" class="ManipulateConfigSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior to perform all required steps to go to the default manipulate configuration.
+	</description>
+
+</behavior>

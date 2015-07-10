@@ -1,0 +1,13 @@
+robot_namespace: thor_mang
+
+mode_controllers_name: mode_controllers
+joint_controllers_name: thor_mang
+robot_controllers_name: thor_mang
+hand_controllers_name: thor_mang
+
+hand_type_prefix: ""
+
+# stepping parameters
+step_distance_forward: 0.1
+step_distance_sideward: 0.1
+turn_degrees_per_step: 10.0

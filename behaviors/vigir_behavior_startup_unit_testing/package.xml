@@ -1,0 +1,20 @@
+<package>
+  <name>vigir_behavior_startup_unit_testing</name>
+  <version>1.0.0</version>
+  <description>
+     Version of the Startup Unit Testing behavior which has been created using the Behavior Editor
+  </description>
+  <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/vigir_behavior_startup_unit_testing</url>
+  <author>Spyros and Philipp</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>flexbe_core</run_depend>
+  <run_depend>flexbe_states</run_depend>
+  <run_depend>flexbe_atlas_states</run_depend>
+
+</package>

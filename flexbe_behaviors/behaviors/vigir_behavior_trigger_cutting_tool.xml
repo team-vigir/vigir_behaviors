@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Trigger Cutting Tool">
+
+	<executable package_path="vigir_behavior_trigger_cutting_tool.trigger_cutting_tool_sm" class="TriggerCuttingToolSM" />
+	<tagstring>sub</tagstring>
+	<author>Dorothea Koert, Philipp Schillinger</author>
+	<date>Tue May 12 2015</date>
+	<description>
+		Switch the cutting tool on or off.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="enum" name="hand_side" default="left" label="Hand Side" hint="Sets the hand side">
+			<option value="left" />
+			<option value="right" />
+		</param>
+
+	</params>
+
+
+</behavior>

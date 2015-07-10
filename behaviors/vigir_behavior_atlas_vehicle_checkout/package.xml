@@ -1,0 +1,20 @@
+<package>
+  <name>vigir_behavior_atlas_vehicle_checkout</name>
+  <version>1.0.0</version>
+  <description>
+     A behavior for initializing and calibrating ATLAS inside the vehicle. To be run before Task #1.
+  </description>
+  <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/vigir_behavior_atlas_vehicle_checkout</url>
+  <author>Spyros Maniatopoulos</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>flexbe_core</run_depend>
+  <run_depend>flexbe_states</run_depend>
+  <run_depend>flexbe_atlas_states</run_depend>
+
+</package>

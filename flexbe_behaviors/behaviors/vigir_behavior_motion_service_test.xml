@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Motion Service Test">
+
+	<executable package_path="vigir_behavior_motion_service_test.motion_service_test_sm" class="MotionServiceTestSM" />
+	<tagstring>test</tagstring>
+	<author>Martin Oehler</author>
+	<date>Wed May 06 2015</date>
+	<description>
+		Test for executing motions via actions
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

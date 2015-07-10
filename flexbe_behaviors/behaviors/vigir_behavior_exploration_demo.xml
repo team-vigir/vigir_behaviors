@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Exploration Demo">
+
+	<executable package_path="vigir_behavior_exploration_demo.exploration_demo_sm" class="ExplorationDemoSM" />
+	<tagstring>walk sense</tagstring>
+	<author>Philipp Schillinger</author>
+	<date>Wed Mar 04 2015</date>
+	<description>
+		Explores an area and collects camera images of it.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="numeric" name="waypoint_distance" default="0.5" label="Waypoint Distance" hint="Desired distance between two waypoints">
+			<min value="0.5" />
+			<max value="3" />
+		</param>
+
+	</params>
+
+
+</behavior>

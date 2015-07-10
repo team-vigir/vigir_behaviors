@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="THOR Tests">
+
+	<executable package_path="vigir_behavior_thor_tests.thor_tests_sm" class="THORTestsSM" />
+	<tagstring>test</tagstring>
+	<author>Philipp Schillinger</author>
+	<date>Thu Apr 09 2015</date>
+	<description>
+		Testing states for THOR.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="enum" name="planning_group" default="l_arm_group" label="Planning Group" hint="Sets the planning_group">
+			<option value="l_arm_group" />
+			<option value="r_arm_group" />
+		</param>
+
+	</params>
+
+
+</behavior>

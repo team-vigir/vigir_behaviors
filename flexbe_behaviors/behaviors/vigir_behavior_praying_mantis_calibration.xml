@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Praying Mantis Calibration">
+
+	<executable package_path="vigir_behavior_praying_mantis_calibration.praying_mantis_calibration_sm" class="PrayingMantisCalibrationSM" />
+	<tagstring>calibration</tagstring>
+	<author>Spyros Maniatopoulos</author>
+	<date>Sat Feb 14 2015</date>
+	<description>
+		A behavior that moves ATLAS into the "praying mantis" pose upon startup in order to get consistent joint encoder offsets for calibration purposes.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

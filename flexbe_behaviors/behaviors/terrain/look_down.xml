@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Look Down">
+	<executable package_path="vigir_behavior_look_down.look_down_sm" class="LookDown" />
+	<author>Jochen Mueck</author>
+	<description>
+		Set Manipulation Mode, Move Pelvis forward to look at feet, return to Stand if Operator wants to
+	</description>
+    <params>
+		<param type="numeric" name="motion_time" default="4.0" label="MotionTime" hint="How fast a motion is executed (seconds).">
+			<min value="0.1" />
+			<max value="5.0" />
+		</param>
+	</params>
+
+</behavior>

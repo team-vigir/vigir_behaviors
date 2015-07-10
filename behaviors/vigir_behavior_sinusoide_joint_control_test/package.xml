@@ -1,0 +1,20 @@
+<package>
+  <name>vigir_behavior_sinusoide_joint_control_test</name>
+  <version>1.0.0</version>
+  <description>
+     Get step response of joint controllers by varying PID gains.
+  </description>
+  <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/vigir_behavior_sinusoide_joint_control_test</url>
+  <author>Philipp and Spyros</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>flexbe_core</run_depend>
+  <run_depend>flexbe_states</run_depend>
+  <run_depend>flexbe_atlas_states</run_depend>
+
+</package>

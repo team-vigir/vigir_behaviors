@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Test Wide Stance and Realign Center">
+	<executable package_path="vigir_behavior_test_wide_center.test_wide_stance_and_center_sm" class="TestWideStanceAndCenterState" />
+	<author>Jochen Mueck</author>
+	<description>
+		Tests Wide Stance and Realign Center State
+	</description>
+
+
+</behavior>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Turn Valve THOR">
+
+	<executable package_path="vigir_behavior_turn_valve_thor.turn_valve_thor_sm" class="TurnValveTHORSM" />
+	<tagstring>task thor</tagstring>
+	<author>Philipp Schillinger, Dorothea Koert</author>
+	<date>Mon Apr 06 2015</date>
+	<description>
+		Lets the robot turn the valve.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="enum" name="hand_type" default="vt_hand" label="Hand Type" hint="Type of hand used for valve manipulation.">
+			<option value="vt_hand" />
+			<option value="robotiq" />
+		</param>
+
+		<param type="enum" name="hand_side" default="right" label="Hand Side" hint="Which hand do you want to use?">
+			<option value="left" />
+			<option value="right" />
+		</param>
+
+		<param type="enum" name="parameter_set" default="drc_step_2D" label="Footstep Mode" hint="Sets the planning mode for footstep">
+			<option value="drc_step_2D" />
+			<option value="drc_step_no_collision" />
+		</param>
+
+	</params>
+
+
+</behavior>

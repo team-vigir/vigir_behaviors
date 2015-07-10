@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Open Push Door">
+	<executable package_path="vigir_behavior_door_task_open_push.open_push_sm" class="OpenPush" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior to open the push door.
+	</description>
+
+</behavior>

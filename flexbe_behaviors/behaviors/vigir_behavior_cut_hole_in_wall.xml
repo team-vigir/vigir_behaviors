@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Cut hole in wall">
+
+	<executable package_path="vigir_behavior_cut_hole_in_wall.cut_hole_in_wall_sm" class="CutholeinwallSM" />
+	<tagstring>task</tagstring>
+	<author>Spyros Maniatopoulos and Philipp Schillinger</author>
+	<date>Mon May 11 2015</date>
+	<description>
+		Behavior that addresses Task 5 of the DRC Finals. Includes walking to and picking up the cutting tool, turning it ON, and using it to cut a circle in the wall.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Walk to Template" />
+	<contains name="Pickup Object" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="enum" name="hand_side" default="right" label="Hand side" hint="Select hand side for grasping">
+			<option value="right" />
+			<option value="left" />
+		</param>
+
+	</params>
+
+
+</behavior>

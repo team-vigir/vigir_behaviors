@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Pass Doors">
+	<executable package_path="vigir_behavior_pass_doors.pass_doors_sm" class="PassDoorsSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior that lets the robot open and pass the doors in the door task.
+	</description>
+
+	<contains name="Get Up" />
+
+</behavior>

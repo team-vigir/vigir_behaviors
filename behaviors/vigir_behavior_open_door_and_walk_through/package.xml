@@ -1,0 +1,20 @@
+<package>
+  <name>vigir_behavior_open_door_and_walk_through</name>
+  <version>1.0.0</version>
+  <description>
+     Performs the open door task challenge.
+  </description>
+  <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/vigir_behavior_open_door_and_walk_through</url>
+  <author>Alex Spitzer</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>flexbe_core</run_depend>
+  <run_depend>flexbe_states</run_depend>
+  <run_depend>flexbe_atlas_states</run_depend>
+
+</package>

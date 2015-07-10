@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Push Door Open">
+
+	<executable package_path="vigir_behavior_push_door_open.push_door_open_sm" class="PushDoorOpenSM" />
+	<tagstring>sub</tagstring>
+	<author>Dorothea Koert, Philipp Schillinger</author>
+	<date>Fri May 15 2015</date>
+	<description>
+		Performs a series of motions to push against the unlocked door.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="enum" name="hand_side" default="left" label="Hand Side" hint="Hand which operates the door handle">
+			<option value="left" />
+			<option value="right" />
+		</param>
+
+	</params>
+
+
+</behavior>

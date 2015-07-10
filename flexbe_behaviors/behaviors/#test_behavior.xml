@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Test Behavior">
+	<executable package_path="vigir_behavior_test_sm.test_sm" class="TestSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior that can be used for testing the behavior engine.
+		It defines a huge hierarchical state machine with states that are automatically triggered after some time.
+	</description>
+
+	<params>
+<!--
+		<param type="text" name="bla" default="" label="Bla" hint="Only for testing..." />
+
+		<param type="boolean" name="blubb" default="1" label="Blubb" hint="Only for testing..." />
+-->
+		<param type="numeric" name="delay" default="4" label="Delay (sec)" hint="Delay until triggering the next outcome">
+			<min value="1" />
+			<max value="10" />
+		</param>
+
+		<param type="enum" name="route" default="green" label="Route" hint="The route that should be taken">
+			<option value="green" />
+			<option value="yellow" />
+			<option value="red" />
+		</param>
+	</params>
+
+</behavior>

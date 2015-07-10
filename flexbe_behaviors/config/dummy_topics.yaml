@@ -1,0 +1,4 @@
+topics_to_record : ['/trajectory_controllers/right_arm_traj_controller/follow_joint_trajectory/goal',
+                    '/trajectory_controllers/right_arm_traj_controller/follow_joint_trajectory/result',
+                    '/trajectory_controllers/left_arm_traj_controller/follow_joint_trajectory/goal',
+                    '/trajectory_controllers/left_arm_traj_controller/follow_joint_trajectory/result']

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<launch>
+
+<include file="$(find flexbe_widget)/launch/behavior_ocs.launch" />
+
+</launch>

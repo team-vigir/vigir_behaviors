@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Grasp Object">
+
+	<executable package_path="vigir_behavior_grasp_object.grasp_object_sm" class="GraspObjectSM" />
+	<tagstring>grasp sub</tagstring>
+	<author>Philipp Schillinger</author>
+	<date>Fri Feb 27 2015</date>
+	<description>
+		Behavior to perform grasping. Robot has to be in range of the object.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="enum" name="hand_type" default="robotiq" label="Hand type" hint="Pick a type of hand">
+			<option value="robotiq" />
+			<option value="vt_hand" />
+		</param>
+
+		<param type="enum" name="hand_side" default="left" label="Hand Side" hint="Select hand side for grasping">
+			<option value="left" />
+			<option value="right" />
+		</param>
+
+	</params>
+
+
+</behavior>

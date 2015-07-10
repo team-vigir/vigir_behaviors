@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Manipulation Config">
+
+	<executable package_path="vigir_behavior_manipulation_config.manipulation_config_sm" class="ManipulationConfigSM" />
+	<tagstring>grasp sub</tagstring>
+	<author>Philipp Schillinger</author>
+	<date>Sun Apr 19 2015</date>
+	<description>
+		Prepares the robot for manipulation.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

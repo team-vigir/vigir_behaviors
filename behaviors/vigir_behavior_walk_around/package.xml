@@ -1,0 +1,20 @@
+<package>
+  <name>vigir_behavior_walk_around</name>
+  <version>1.0.0</version>
+  <description>
+     Test walking states.
+  </description>
+  <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/vigir_behavior_walk_around</url>
+  <author>Philipp</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>flexbe_core</run_depend>
+  <run_depend>flexbe_states</run_depend>
+  <run_depend>flexbe_atlas_states</run_depend>
+
+</package>

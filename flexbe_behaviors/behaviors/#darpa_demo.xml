@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="DARPA Demo">
+	<executable package_path="vigir_behavior_darpa_demo.darpa_demo_sm" class="DarpaDemoSM" />
+	<author>Philipp Schillinger and Jochen Mueck</author>
+	<description>
+		Behavior for the DARPA Demo on 23/10/2014
+	</description>
+
+</behavior>

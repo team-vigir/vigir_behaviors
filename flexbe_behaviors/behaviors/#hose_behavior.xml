@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Hose Task">
+	<executable package_path="vigir_behavior_hose_task.hose_task_sm" class="HoseTask" />
+	<author>Jochen Mueck</author>
+	<description>
+        Hose Task behavior
+	</description>
+
+</behavior>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Open Door and Walk Through">
+
+	<executable package_path="vigir_behavior_open_door_and_walk_through.open_door_and_walk_through_sm" class="OpenDoorandWalkThroughSM" />
+	<tagstring>task</tagstring>
+	<author>Philipp Schillinger, Dorothea Koert</author>
+	<date>Tue Apr 07 2015</date>
+	<description>
+		Performs the open door task challenge.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Walk to Template" />
+	<contains name="Push Door Open" />
+	<contains name="Grasp Object" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="enum" name="hand_side" default="left" label="Hand side" hint="Which hand manipulates the handle?">
+			<option value="left" />
+			<option value="right" />
+		</param>
+
+		<param type="enum" name="hand_type" default="vt_hand" label="Hand Type" hint="Sets the hand type">
+			<option value="robotiq" />
+			<option value="vt_hand" />
+		</param>
+
+		<param type="enum" name="parameter_set" default="drc_step_2D" label="Footstep Mode" hint="Sets the mode for footstep planning">
+			<option value="drc_step_no_collision" />
+			<option value="drc_step_2D" />
+			<option value="drc_step_3D" />
+		</param>
+
+	</params>
+
+
+</behavior>

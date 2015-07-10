@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Test Various New States">
+
+	<executable package_path="vigir_behavior_test_various_new_states.test_various_new_states_sm" class="TestVariousNewStatesSM" />
+	<tagstring></tagstring>
+	<author>Spyros Maniatopoulos</author>
+	<date>Fri Jan 30 2015</date>
+	<description>
+		This is a dummy behavior. It is used for debugging new states that are currently under development.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

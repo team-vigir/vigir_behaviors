@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Simple Joint Control Test">
+
+	<executable package_path="vigir_behavior_simple_joint_control_test.simple_joint_control_test_sm" class="SimpleJointControlTestSM" />
+	<tagstring>test</tagstring>
+	<author>Philipp and Spyros</author>
+	<date>Mon Nov 03 2014</date>
+	<description>
+		Get step response of joint controllers by varying PID gains.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="yaml" name="topics_to_record" default="" label="Topics to Record" hint="Should list all important topics regarding the joint controllers.">
+			<key name="topics_to_record" />
+		</param>
+
+		<param type="numeric" name="joint_upper_bounds" default="0.6" label="joint_upper_bounds" hint="Sets the joint_upper_bounds">
+			<min value="0" />
+			<max value="1" />
+		</param>
+
+		<param type="numeric" name="joint_lower_bounds" default="0.4" label="joint_lower_bounds" hint="Sets the joint_lower_bounds">
+			<min value="0" />
+			<max value="1" />
+		</param>
+
+		<param type="boolean" name="real_robot" default="True" label="On real robot" hint="For deciding between the real robot and simulation configurations." />
+
+	</params>
+
+
+</behavior>

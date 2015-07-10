@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="FlexBE Test Behavior">
+
+	<executable package_path="vigir_behavior_flexbe_test_behavior.flexbe_test_behavior_sm" class="FlexBETestBehaviorSM" />
+	<tagstring>test</tagstring>
+	<author>Philipp Schillinger</author>
+	<date>Tue Nov 18 2014</date>
+	<description>
+		A simple test behavior for testing FlexBE
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="FlexBE Inner Test Behavior" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="numeric" name="wait_time" default="3" label="wait_time" hint="Sets the wait_time">
+			<min value="1" />
+			<max value="9" />
+		</param>
+
+	</params>
+
+
+</behavior>

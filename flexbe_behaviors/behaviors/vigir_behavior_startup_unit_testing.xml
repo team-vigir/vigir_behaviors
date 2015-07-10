@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Startup Unit Testing">
+
+	<executable package_path="vigir_behavior_startup_unit_testing.startup_unit_testing_sm" class="StartupUnitTestingSM" />
+	<author>Spyros and Philipp</author>
+	<date>Tue Oct 28 2014</date>
+	<description>
+		Version of the Startup Unit Testing behavior which has been created using the Behavior Editor
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Praying Mantis Calibration" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="yaml" name="topics_to_record" default="" label="Topics to Record" hint="Sets the topics_to_record">
+			<key name="topics_to_record" />
+		</param>
+
+		<param type="boolean" name="real_robot" default="True" label="On real robot?" hint="Decides which joint limits to use." />
+
+	</params>
+
+
+</behavior>

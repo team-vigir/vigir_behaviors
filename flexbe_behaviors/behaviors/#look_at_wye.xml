@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Look At Wye">
+	<executable package_path="vigir_behavior_look_at_wye.look_at_wye_sm" class="LookAtWyeSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior to perform all required steps to look at the wye.
+	</description>
+
+</behavior>

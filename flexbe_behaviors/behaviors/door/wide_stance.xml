@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Wide Stance">
+	<executable package_path="vigir_behavior_wide_stance.wide_stance_sm" class="WideStance" />
+	<author>Jochen Mueck</author>
+	<description>
+        Wide Stance Mode
+	</description>
+
+
+</behavior>

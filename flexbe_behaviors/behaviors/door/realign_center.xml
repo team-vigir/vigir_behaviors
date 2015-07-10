@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Realign Center">
+	<executable package_path="vigir_behavior_realign_center.realign_center_sm" class="RealignCenter" />
+	<author>Jochen Mueck</author>
+	<description>
+        Realign Center
+	</description>
+
+
+</behavior>

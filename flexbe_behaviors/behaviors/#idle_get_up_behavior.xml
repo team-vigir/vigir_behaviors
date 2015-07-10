@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Idle Get Up">
+	<executable package_path="vigir_behavior_get_up.idle_get_up_sm" class="IdleGetUpSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior that lets the robot stand up when lying on the ground whenever it falls down.
+	</description>
+
+	<contains name="Get Up" />
+
+</behavior>

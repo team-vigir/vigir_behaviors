@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Waypoint Movement">
+	<executable package_path="vigir_behavior_waypoint_movement.waypoint_movement" class="WaypointMovement" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior that lets the robot walk along a route given by several waypoints.
+	</description>
+
+	<params>
+		<param type="yaml" name="waypoint_list" default="" label="Waypoints" hint="Determines the taken waypoints">
+			<key name="waypoints" />
+		</param>
+	</params>
+
+	<contains name="Get Up" />
+
+</behavior>

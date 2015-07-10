@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Surprise Plug">
+
+	<executable package_path="vigir_behavior_surprise_plug.surprise_plug_sm" class="SurprisePlugSM" />
+	<tagstring>task</tagstring>
+	<author>Philipp Schillinger, Dorothea Koert</author>
+	<date>Mon Jun 01 2015</date>
+	<description>
+		do the plug surprise task
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Walk to Template" />
+	<contains name="Grasp Object" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="enum" name="hand_side" default="left" label="hand_side" hint="Sets the hand_side">
+			<option value="left" />
+			<option value="right" />
+		</param>
+
+		<param type="enum" name="hand_type" default="vt_hand" label="hand_type" hint="Sets the hand_type">
+			<option value="vt_hand" />
+			<option value="robotiq" />
+		</param>
+
+	</params>
+
+
+</behavior>

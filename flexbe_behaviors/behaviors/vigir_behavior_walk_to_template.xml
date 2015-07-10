@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Walk to Template">
+
+	<executable package_path="vigir_behavior_walk_to_template.walk_to_template_sm" class="WalktoTemplateSM" />
+	<tagstring>walk sub</tagstring>
+	<author>Philipp Schillinger</author>
+	<date>Sat Apr 04 2015</date>
+	<description>
+		Lets the robot walk to the specified template's stand pose.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="enum" name="parameter_set" default="drc_step_2D" label="Parameter set" hint="Set collision avoidance for planning">
+			<option value="drc_step_2D" />
+			<option value="drc_step_no_collision" />
+		</param>
+
+		<param type="enum" name="hand_side" default="left" label="Side" hint="Select side for stand pose">
+			<option value="left" />
+			<option value="right" />
+		</param>
+
+	</params>
+
+
+</behavior>

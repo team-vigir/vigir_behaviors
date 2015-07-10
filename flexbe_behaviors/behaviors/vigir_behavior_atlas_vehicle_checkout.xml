@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="ATLAS vehicle checkout">
+
+	<executable package_path="vigir_behavior_atlas_vehicle_checkout.atlas_vehicle_checkout_sm" class="ATLASvehiclecheckoutSM" />
+	<tagstring>calibration</tagstring>
+	<author>Spyros Maniatopoulos</author>
+	<date>Sun May 24 2015</date>
+	<description>
+		A behavior for helping with getting ATLAS inside the vehicle and preparing to drive (Task #1)
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

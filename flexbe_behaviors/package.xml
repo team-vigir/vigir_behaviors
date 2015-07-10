@@ -1,0 +1,83 @@
+<package>
+  <name>flexbe_behaviors</name>
+  <version>1.0.0</version>
+  <description>
+     flexbe_behaviors references all implemented behaviors.
+
+  </description>
+  <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/flexbe_behaviors</url>
+  <author>Philipp Schillinger</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>smach_ros</run_depend>
+
+  <!-- Add here all ROS packages that contain behaviors -->
+  <run_depend>vigir_behavior_darpa_demo</run_depend>
+  <run_depend>vigir_behavior_test_sm</run_depend>
+  <run_depend>vigir_behavior_test_single_sm</run_depend>
+  <run_depend>vigir_behavior_valve_task</run_depend>
+  <run_depend>vigir_behavior_drill_here</run_depend>
+  <run_depend>vigir_behavior_drill_at_position</run_depend>
+  <run_depend>vigir_behavior_drill_line</run_depend>
+  <run_depend>vigir_behavior_slump_mode_in</run_depend>
+  <run_depend>vigir_behavior_slump_mode_simple</run_depend>
+  <run_depend>vigir_behavior_look_down</run_depend>
+  <run_depend>vigir_behavior_door_task_open_push</run_depend>
+  <run_depend>vigir_behavior_door_task_open_pull</run_depend>
+  <run_depend>vigir_behavior_repeated_valve_rotation</run_depend>
+  <run_depend>vigir_behavior_test_wide_center</run_depend>
+  <run_depend>vigir_behavior_valve_task_complete</run_depend>
+  <run_depend>vigir_behavior_hose_task</run_depend>
+  <run_depend>vigir_behavior_manipulate_config</run_depend>
+  <run_depend>vigir_behavior_debris_throw</run_depend>
+  <run_depend>vigir_behavior_realign_center</run_depend>
+  <run_depend>vigir_behavior_wide_stance</run_depend>
+  <run_depend>vigir_behavior_debris_task</run_depend>
+  <run_depend>vigir_behavior_look_at_wye</run_depend>
+  <run_depend>vigir_behavior_startup_unit_testing</run_depend>
+  <run_depend>vigir_behavior_simple_joint_control_test</run_depend>
+  <run_depend>vigir_behavior_simple_footstep_test</run_depend>
+  <run_depend>vigir_behavior_sinusoide_joint_control_test</run_depend>
+  <run_depend>vigir_behavior_flexbe_test_behavior</run_depend>
+  <run_depend>vigir_behavior_system_identification_tests</run_depend>
+  <run_depend>vigir_behavior_walk_and_grasp_demo</run_depend>
+  <run_depend>vigir_behavior_test_various_new_states</run_depend>
+  <run_depend>vigir_behavior_praying_mantis_calibration</run_depend>
+  <run_depend>vigir_behavior_walk_around</run_depend>
+  <run_depend>vigir_behavior_flexbe_inner_test_behavior</run_depend>
+  <run_depend>vigir_behavior_grasp_object</run_depend>
+  <run_depend>vigir_behavior_flexbe_testprint_behavior</run_depend>
+  <run_depend>vigir_behavior_exploration_demo</run_depend>
+  <run_depend>vigir_behavior_test_behavior_input</run_depend>
+  <run_depend>vigir_behavior_walk_to_template</run_depend>
+  <run_depend>vigir_behavior_open_door_and_walk_through</run_depend>
+  <run_depend>vigir_behavior_turn_valve</run_depend>
+  <run_depend>vigir_behavior_thor_tests</run_depend>
+  <run_depend>vigir_behavior_crashing_moveit</run_depend>
+  <run_depend>vigir_behavior_manipulation_config</run_depend>
+  <run_depend>vigir_behavior_locomotion_config</run_depend>
+  <run_depend>vigir_behavior_motion_service_test</run_depend>
+  <run_depend>vigir_behavior_force_torque_sensor_calibration</run_depend>
+  <run_depend>vigir_behavior_cut_hole_in_wall</run_depend>
+  <run_depend>vigir_behavior_pickup_object</run_depend>
+  <run_depend>vigir_behavior_testdoro</run_depend>
+  <run_depend>vigir_behavior_stand_up_behavior</run_depend>
+  <run_depend>vigir_behavior_trigger_cutting_tool</run_depend>
+  <run_depend>vigir_behavior_push_door_open</run_depend>
+  <run_depend>vigir_behavior_open_door_atlas</run_depend>
+  <run_depend>vigir_behavior_atlas_checkout</run_depend>
+  <run_depend>vigir_behavior_atlas_vehicle_checkout</run_depend>
+  <run_depend>vigir_behavior_open_door_thor</run_depend>
+  <run_depend>vigir_behavior_turn_valve_thor</run_depend>
+  <run_depend>vigir_behavior_open_door_thor_side</run_depend>
+  <run_depend>vigir_behavior_open_door_thor_turn</run_depend>
+  <run_depend>vigir_behavior_surprise_task_trigger</run_depend>
+  <run_depend>vigir_behavior_surprise_push_button</run_depend>
+  <run_depend>vigir_behavior_surprise_plug</run_depend>
+  <run_depend>vigir_behavior_surprise_run_1_thor</run_depend>
+</package>

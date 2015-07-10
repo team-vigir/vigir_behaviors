@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Debris Task">
+	<executable package_path="vigir_behavior_debris_task.debris_task_sm" class="DebrisTaskSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior to solve the first part of the debris task.
+	</description>
+
+	<contains name="Debris Throw" />
+
+</behavior>

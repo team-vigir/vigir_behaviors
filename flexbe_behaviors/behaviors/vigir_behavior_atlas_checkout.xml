@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="ATLAS checkout">
+
+	<executable package_path="vigir_behavior_atlas_checkout.atlas_checkout_sm" class="ATLAScheckoutSM" />
+	<tagstring>calibration</tagstring>
+	<author>Spyros Maniatopoulos</author>
+	<date>Sat May 23 2015</date>
+	<description>
+		A behavior meant to be run before high voltage is provided to ATLAS. It guides the robot through BDI's calibration, initial control mode changes, Praying Mantis calibration, and visual calibration check.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Praying Mantis Calibration" />
+
+	<!-- Available Parameters -->
+
+</behavior>

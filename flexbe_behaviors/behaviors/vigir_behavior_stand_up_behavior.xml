@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Stand Up Behavior">
+
+	<executable package_path="vigir_behavior_stand_up_behavior.stand_up_behavior_sm" class="StandUpBehaviorSM" />
+	<tagstring></tagstring>
+	<author>Dorothea Koert</author>
+	<date>Mon May 11 2015</date>
+	<description>
+		
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

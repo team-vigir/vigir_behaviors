@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Open Pull Door">
+	<executable package_path="vigir_behavior_door_task_open_pull.open_pull_sm" class="OpenPull" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior to open the pull door.
+	</description>
+
+</behavior>

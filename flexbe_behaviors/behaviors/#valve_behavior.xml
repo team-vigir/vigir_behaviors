@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Valve Behavior">
+	<executable package_path="vigir_behavior_valve_task.valve_sm" class="ValveSM" />
+	<author>Karen Petersen</author>
+	<description>
+		A behavior to automate as much as possible of the valve task
+	</description>
+
+</behavior>

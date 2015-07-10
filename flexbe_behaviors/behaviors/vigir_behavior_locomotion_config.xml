@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Locomotion Config">
+
+	<executable package_path="vigir_behavior_locomotion_config.locomotion_config_sm" class="LocomotionConfigSM" />
+	<tagstring>sub walk</tagstring>
+	<author>Philipp Schillinger</author>
+	<date>Sun Apr 19 2015</date>
+	<description>
+		Prepares the robot for walking after being in manipulation config.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

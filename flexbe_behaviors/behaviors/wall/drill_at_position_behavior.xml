@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Drill At Position">
+	<executable package_path="vigir_behavior_drill_at_position.drill_at_position_sm" class="DrillAtPositionSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior that lets the robot drill, starting at a specified position.
+	</description>
+
+	<contains name="Drill Here" />
+
+</behavior>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Test Behavior Input">
+
+	<executable package_path="vigir_behavior_test_behavior_input.test_behavior_input_sm" class="TestBehaviorInputSM" />
+	<author>Philipp</author>
+	<date>Wed Apr 01 2015</date>
+	<description>
+		Simple behavior for testing the Behavior Input pipeline.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

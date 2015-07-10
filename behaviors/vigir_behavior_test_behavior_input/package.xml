@@ -1,0 +1,20 @@
+<package>
+  <name>vigir_behavior_test_behavior_input</name>
+  <version>1.0.0</version>
+  <description>
+     Simple behavior for testing the Behavior Input pipeline.
+  </description>
+  <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/vigir_behavior_test_behavior_input</url>
+  <author>Philipp</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>flexbe_core</run_depend>
+  <run_depend>flexbe_states</run_depend>
+  <run_depend>flexbe_atlas_states</run_depend>
+
+</package>

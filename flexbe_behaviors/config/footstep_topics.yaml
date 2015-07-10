@@ -1,0 +1,33 @@
+topics_to_record : ['/flor/controller/mode',
+                    '/mode_controllers/control_mode_controller/change_control_mode/goal',
+                    '/mode_controllers/control_mode_controller/change_control_mode/feedback',
+                    '/mode_controllers/control_mode_controller/change_control_mode/result',
+                    # OBFSP
+                    '/vigir/footstep_planning/step_plan_request/goal',
+                    '/vigir/footstep_planning/step_plan_request/feedback',
+                    '/vigir/footstep_planning/step_plan_request/result',
+                    # OBFSM
+                    '/vigir/footstep_manager/generate_feet_pose/goal',
+                    '/vigir/footstep_manager/generate_feet_pose/feedback',
+                    '/vigir/footstep_manager/generate_feet_pose/result',
+                    '/vigir/footstep_manager/step_plan_request/goal',
+                    '/vigir/footstep_manager/step_plan_request/feedback',
+                    '/vigir/footstep_manager/step_plan_request/request',
+                    '/vigir/footstep_manager/execute_step_plan/goal',
+                    '/vigir/footstep_manager/execute_step_plan/feedback',
+                    '/vigir/footstep_manager/execute_step_plan/result',
+                    '/vigir/footstep_manager/current_step_plan',
+                    '/vigir/footstep_manager/step_update',
+                    '/vigir/footstep_manager/updated_step_plan',
+                    # OCS
+                    # ...
+                    # Footstep Controller
+                    '/robot_controllers/footstep_controller/execute_step_plan/goal',
+                    '/robot_controllers/footstep_controller/execute_step_plan/feedback',
+                    '/robot_controllers/footstep_controller/execute_step_plan/result',
+                    '/flor/controller/step_command',
+                    '/flor/controller/step_feedback',
+                    # Behavior Input (for interacting with OCS)
+                    '/flexbe/behavior_input/feedback',
+                    '/flexbe/behavior_input/goal',
+                    '/flexbe/behavior_input/result']

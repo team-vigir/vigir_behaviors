@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="FlexBE Testprint Behavior">
+
+	<executable package_path="vigir_behavior_flexbe_testprint_behavior.flexbe_testprint_behavior_sm" class="FlexBETestprintBehaviorSM" />
+	<tagstring>test</tagstring>
+	<author>Philipp</author>
+	<date>Mon Mar 02 2015</date>
+	<description>
+		Just prints its parameter
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="text" name="msg" default="test" label="msg" hint="Sets the msg" />
+
+	</params>
+
+
+</behavior>

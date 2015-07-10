@@ -1,0 +1,14 @@
+robot_namespace: flor
+
+mode_controllers_name: mode_controllers
+joint_controllers_name: trajectory_controllers
+robot_controllers_name: robot_controllers
+hand_controllers_name: hand_controllers
+
+hand_type_prefix: FLOR_
+
+# stepping parameters
+step_distance_forward: 0.20
+# max sideward step = 25 cm (stability limit)
+step_distance_sideward: 0.20
+turn_degrees_per_step: 20.0

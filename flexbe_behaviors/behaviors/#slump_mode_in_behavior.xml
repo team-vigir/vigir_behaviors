@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Slump Mode Advanced in">
+	<executable package_path="vigir_behavior_slump_mode_in.slump_mode_in_sm" class="SlumpModeIn" />
+	<author>Jochen Mueck</author>
+	<description>
+		A behavior that moves the robot into slump mode
+	</description>
+
+</behavior>

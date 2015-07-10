@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Drill Here">
+	<executable package_path="vigir_behavior_drill_here.drill_here_sm" class="DrillHereSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior that lets the robot drill at its current position.
+	</description>
+
+	<params>
+		<param type="boolean" name="fixed_torso" default="1" label="Fixed Torso" 
+			hint="Defines whether the torso should be included into planning or not." />
+	</params>
+
+</behavior>

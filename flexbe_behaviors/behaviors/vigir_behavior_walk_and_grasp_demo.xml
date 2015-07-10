@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Walk and Grasp Demo">
+
+	<executable package_path="vigir_behavior_walk_and_grasp_demo.walk_and_grasp_demo_sm" class="WalkandGraspDemoSM" />
+	<tagstring>demo</tagstring>
+	<author>Philipp Schillinger</author>
+	<date>Tue Jan 20 2015</date>
+	<description>
+		Demo behavior for the scenario: Walk to the table and grab the power drill.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Walk to Template" />
+	<contains name="Manipulation Config" />
+	<contains name="Pickup Object" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="enum" name="hand_side" default="left" label="Hand side" hint="Select hand side for grasping">
+			<option value="left" />
+			<option value="right" />
+		</param>
+
+	</params>
+
+
+</behavior>

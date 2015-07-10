@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="FlexBE Inner Test Behavior">
+
+	<executable package_path="vigir_behavior_flexbe_inner_test_behavior.flexbe_inner_test_behavior_sm" class="FlexBEInnerTestBehaviorSM" />
+	<tagstring>test</tagstring>
+	<author>Philipp Schillinger</author>
+	<date>Thu Feb 26 2015</date>
+	<description>
+		A behavior to be embedded into another behvaior for testing.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="FlexBE Testprint Behavior" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="text" name="message" default="Hello!" label="message" hint="Sets the message" />
+
+	</params>
+
+
+</behavior>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Slump Mode Simple">
+	<executable package_path="vigir_behavior_slump_mode_simple.slump_mode_simple_sm" class="SlumpModeSimple" />
+	<author>Jochen Mueck</author>
+	<description>
+		Moves the Robot into a simple Slump Mode
+	</description>
+
+
+</behavior>

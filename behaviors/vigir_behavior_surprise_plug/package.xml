@@ -1,0 +1,20 @@
+<package>
+  <name>vigir_behavior_surprise_plug</name>
+  <version>1.0.0</version>
+  <description>
+     do the plug surprise task
+  </description>
+  <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/vigir_behavior_surprise_plug</url>
+  <author>Philipp Schillinger, Dorothea Koert</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>flexbe_core</run_depend>
+  <run_depend>flexbe_states</run_depend>
+  <run_depend>flexbe_atlas_states</run_depend>
+
+</package>

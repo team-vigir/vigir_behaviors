@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Repeated Valve Rotation">
+	<executable package_path="vigir_behavior_repeated_valve_rotation.repeated_valve_rotation_sm" class="RepeatedValveRotationSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior to rotate the valve by repeated pulling using the hook hand.
+	</description>
+
+	<params>
+		<param type="numeric" name="angle" default="180" label="Valve Turning Angle" hint="How far rotation should be done.">
+			<min value="10" />
+			<max value="270" />
+		</param>
+	</params>
+
+</behavior>

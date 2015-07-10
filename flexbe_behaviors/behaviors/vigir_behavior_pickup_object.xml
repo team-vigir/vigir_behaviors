@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Pickup Object">
+
+	<executable package_path="vigir_behavior_pickup_object.pickup_object_sm" class="PickupObjectSM" />
+	<tagstring>sub grasp</tagstring>
+	<author>Philipp Schillinger</author>
+	<date>Mon May 11 2015</date>
+	<description>
+		Grasps and picks up any object in front of the robot.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Grasp Object" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="enum" name="hand_side" default="left" label="Hand side" hint="Select hand side for grasping">
+			<option value="left" />
+			<option value="right" />
+		</param>
+
+	</params>
+
+
+</behavior>

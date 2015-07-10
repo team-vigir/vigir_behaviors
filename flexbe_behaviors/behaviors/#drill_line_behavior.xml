@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Drill Line">
+	<executable package_path="vigir_behavior_drill_line.drill_line_sm" class="DrillLineSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior that lets the robot drill along a line.
+	</description>
+
+	<params>
+		<param type="numeric" name="max_drill_distance" default="0.05" label="Max distance between two drills (m)" hint="Max distance between two drills (m)">
+			<min value="0.01" />
+			<max value="1" />
+		</param>
+	</params>
+
+	<contains name="Drill At Position" />
+
+</behavior>

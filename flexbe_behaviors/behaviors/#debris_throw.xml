@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Debris Throw">
+	<executable package_path="vigir_behavior_debris_throw.debris_throw_sm" class="DebrisThrow" />
+	<author>Jochen Mueck</author>
+	<description>
+        Behavior that moves debris in robot's left hand and throws it away
+	</description>
+
+	<contains name="Slump Mode Advanced in" />
+
+</behavior>

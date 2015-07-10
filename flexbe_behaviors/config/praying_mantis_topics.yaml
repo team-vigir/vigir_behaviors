@@ -1,0 +1,32 @@
+topics_to_record : ['/flor/controller/atlas_state',
+                    '/flor/controller/joint_command',
+                    # Topics useful for System Identification tests
+                    '/flor/controller/joint_control',
+                    '/flor/controller/actuator_state',
+                    '/flor/controller/raw_actuator',
+                    '/flor/controller/raw_state',
+                    '/flor/controller/interface_statistics',
+                    '/flor/controller/controller_statistics',
+                    '/flor/controller/mode',
+                    '/flor/controller/raw_state',
+                    '/flor/controller/robot_status',
+                    # Regular trajectory controller topics
+                    '/trajectory_controllers/right_arm_traj_controller/follow_joint_trajectory/goal',
+                    '/trajectory_controllers/right_arm_traj_controller/follow_joint_trajectory/status',
+                    '/trajectory_controllers/right_arm_traj_controller/follow_joint_trajectory/feedback',
+                    '/trajectory_controllers/right_arm_traj_controller/follow_joint_trajectory/result',
+                    '/trajectory_controllers/left_arm_traj_controller/follow_joint_trajectory/goal',
+                    '/trajectory_controllers/left_arm_traj_controller/follow_joint_trajectory/status',
+                    '/trajectory_controllers/left_arm_traj_controller/follow_joint_trajectory/feedback',
+                    '/trajectory_controllers/left_arm_traj_controller/follow_joint_trajectory/result',
+                    # Special controller topics (For pushing against the joint limits in MANIPULATE_LIMITS control mode)
+                    '/joint_controllers/right_arm_joint_limit_traj_controller/follow_joint_trajectory/goal',
+                    '/joint_controllers/right_arm_joint_limit_traj_controller/follow_joint_trajectory/cancel',
+                    '/joint_controllers/right_arm_joint_limit_traj_controller/follow_joint_trajectory/feedback',
+                    '/joint_controllers/right_arm_joint_limit_traj_controller/follow_joint_trajectory/result',
+                    '/joint_controllers/left_arm_joint_limit_traj_controller/follow_joint_trajectory/goal',
+                    '/joint_controllers/left_arm_joint_limit_traj_controller/follow_joint_trajectory/cancel',
+                    '/joint_controllers/left_arm_joint_limit_traj_controller/follow_joint_trajectory/feedback',
+                    '/joint_controllers/left_arm_joint_limit_traj_controller/follow_joint_trajectory/result',
+                    # Topics where joint offsets are published to
+                    '/flor/controller/encoder_offsets']

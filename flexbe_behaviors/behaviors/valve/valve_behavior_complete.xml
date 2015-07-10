@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Valve Behavior Complete">
+	<executable package_path="vigir_behavior_valve_task_complete.valve_task_complete_sm" class="ValveTaskCompleteSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior to guide the operator through the valve task.
+	</description>
+
+	<contains name="Repeated Valve Rotation" />
+
+</behavior>

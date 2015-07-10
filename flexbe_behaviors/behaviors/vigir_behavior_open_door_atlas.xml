@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Open Door ATLAS">
+
+	<executable package_path="vigir_behavior_open_door_atlas.open_door_atlas_sm" class="OpenDoorATLASSM" />
+	<tagstring>task</tagstring>
+	<author>Spyros Maniatopoulos</author>
+	<date>Mon May 18 2015</date>
+	<description>
+		A behavior for performing Task 3 with ATLAS.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Walk to Template" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="enum" name="hand_side" default="right" label="hand_side" hint="Sets the hand_side">
+			<option value="right" />
+			<option value="left" />
+		</param>
+
+		<param type="enum" name="hand_type" default="robotiq" label="hand_type" hint="Sets the hand_type">
+			<option value="robotiq" />
+		</param>
+
+	</params>
+
+
+</behavior>

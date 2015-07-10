@@ -1,0 +1,20 @@
+<package>
+  <name>vigir_behavior_cut_hole_in_wall</name>
+  <version>1.0.0</version>
+  <description>
+     Behavior that addresses Task 5 of the DRC Finals. Includes walking to and picking up the cutting tool, turning it ON, and using it to cut a circle in the wall.
+  </description>
+  <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/vigir_behavior_cut_hole_in_wall</url>
+  <author>Spyros Maniatopoulos and Philipp Schillinger</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>flexbe_core</run_depend>
+  <run_depend>flexbe_states</run_depend>
+  <run_depend>flexbe_atlas_states</run_depend>
+
+</package>

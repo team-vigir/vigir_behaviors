@@ -1,0 +1,20 @@
+<package>
+  <name>vigir_behavior_atlas_checkout</name>
+  <version>1.0.0</version>
+  <description>
+     A behavior meant to be run before high voltage is provided to ATLAS. It guides the robot through BDI's calibration, initial control mode changes, Praying Mantis calibration, and visual calibration check.
+  </description>
+  <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/vigir_behavior_atlas_checkout</url>
+  <author>Spyros Maniatopoulos</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>flexbe_core</run_depend>
+  <run_depend>flexbe_states</run_depend>
+  <run_depend>flexbe_atlas_states</run_depend>
+
+</package>

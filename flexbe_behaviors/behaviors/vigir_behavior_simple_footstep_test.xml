@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Simple Footstep Test">
+
+	<executable package_path="vigir_behavior_simple_footstep_test.simple_footstep_test_sm" class="SimpleFootstepTestSM" />
+	<tagstring>test, walk</tagstring>
+	<author>Philipp and Spyros</author>
+	<date>Wed Nov 05 2014</date>
+	<description>
+		Behavior for testing footstep planning and execution. There are currently three testing modes: waypoint following, wide-stance/re-align, and testing plans modified on the OCS side.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+	<contains name="Manipulation Config" />
+	<contains name="Locomotion Config" />
+
+	<!-- Available Parameters -->
+	<params>
+
+		<param type="yaml" name="topics_to_record" default="" label="topics_to_record" hint="Sets the topics_to_record">
+			<key name="topics_to_record" />
+		</param>
+
+	</params>
+
+
+</behavior>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="Walk Around">
+
+	<executable package_path="vigir_behavior_walk_around.walk_around_sm" class="WalkAroundSM" />
+	<author>Philipp</author>
+	<date>Wed Feb 25 2015</date>
+	<description>
+		Test walking states.
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

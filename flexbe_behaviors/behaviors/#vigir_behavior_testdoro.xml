@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="TestDoro">
+
+	<executable package_path="vigir_behavior_testdoro.testdoro_sm" class="TestDoroSM" />
+	<tagstring>test</tagstring>
+	<author>Doro</author>
+	<date>Tue May 05 2015</date>
+	<description>
+		Test for changing control modes
+	</description>
+
+
+	<!-- Contained Behaviors -->
+
+	<!-- Available Parameters -->
+
+</behavior>

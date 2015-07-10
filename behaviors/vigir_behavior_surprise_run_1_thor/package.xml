@@ -1,0 +1,20 @@
+<package>
+  <name>vigir_behavior_surprise_run_1_thor</name>
+  <version>1.0.0</version>
+  <description>
+     Behavior for the surprise task on run 1 of the DRC Finals.
+  </description>
+  <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/vigir_behavior_surprise_run_1_thor</url>
+  <author>Philipp Schillinger, Dorothea Koert</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>flexbe_core</run_depend>
+  <run_depend>flexbe_states</run_depend>
+  <run_depend>flexbe_atlas_states</run_depend>
+
+</package>

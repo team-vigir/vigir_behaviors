@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<behavior name="Grasp Demo">
+	<executable package_path="vigir_behavior_grasp_demo.grasp_demo_sm" class="GraspDemoSM" />
+	<author>Philipp Schillinger</author>
+	<description>
+		A behavior that demonstrates how grasping can work with this behavior framework.
+	</description>
+
+	<params>
+		<param type="enum" name="template" default="Coupling" label="Object to grasp" hint="The object that should be grasped.">
+			<option value="Coupling" />
+			<option value="Valve" />
+			<option value="Cordless Drill" />
+			<option value="Steering Wheel" />
+		</param>
+	</params>
+
+	<contains name="Waypoint Movement" />
+
+</behavior>
