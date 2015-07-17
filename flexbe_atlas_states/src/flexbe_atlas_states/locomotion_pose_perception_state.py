@@ -5,7 +5,7 @@ from flexbe_core import EventState, Logger
 import actionlib
 import rospy
 
-from flor_perception_msgs.msg import *
+from vigir_perception_msgs.msg import *
 
 
 '''

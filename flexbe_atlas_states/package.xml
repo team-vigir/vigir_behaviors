@@ -26,16 +26,12 @@
 
   <!-- Some of these are probably obsolete -->
   <run_depend>flor_control_msgs</run_depend>
-  <run_depend>flor_planning_msgs</run_depend>
-  <run_depend>flor_ocs_msgs</run_depend>
-  <run_depend>flor_footstep_planner_msgs</run_depend>
-  <run_depend>flor_grasp_msgs</run_depend>
-  <run_depend>flor_motion</run_depend>
-  <run_depend>flor_ocs_msgs</run_depend>
-  <run_depend>flor_perception_msgs</run_depend>
+  <run_depend>vigir_ocs_msgs</run_depend>
+  <run_depend>vigir_grasp_msgs</run_depend>
 
   <run_depend>flexbe_core</run_depend>
   <run_depend>vigir_planning_msgs</run_depend>
+  <run_depend>vigir_teleop_planning_msgs</run_depend>
   <run_depend>vigir_footstep_planning_msgs</run_depend>
   <run_depend>vigir_object_template_msgs</run_depend>
   <run_depend>vigir_perception_msgs</run_depend>

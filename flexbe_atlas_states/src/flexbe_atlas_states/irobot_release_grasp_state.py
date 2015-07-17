@@ -4,7 +4,7 @@ import rospy
 
 from flexbe_core import EventState
 from flexbe_core.proxy import ProxyPublisher
-from flor_grasp_msgs.msg import GraspSelection
+from vigir_grasp_msgs.msg import GraspSelection
 
 class IRobotReleaseGraspState(EventState):
     

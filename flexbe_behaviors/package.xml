@@ -80,4 +80,8 @@
   <run_depend>vigir_behavior_surprise_push_button</run_depend>
   <run_depend>vigir_behavior_surprise_plug</run_depend>
   <run_depend>vigir_behavior_surprise_run_1_thor</run_depend>
+  <run_depend>behavior_system_identification_tests</run_depend>
+  <run_depend>behavior_praying_mantis_calibration</run_depend>
+  <run_depend>behavior_new_system_identification_tests</run_depend>
+  <run_depend>behavior_stabilized_mantis_calibration</run_depend>
 </package>

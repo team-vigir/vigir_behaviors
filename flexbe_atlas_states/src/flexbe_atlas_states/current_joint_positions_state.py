@@ -5,7 +5,7 @@ import rospy
 from flexbe_core import EventState, Logger
 from flexbe_core.proxy.proxy_service_caller import ProxyServiceCaller
 
-from vigir_planning_msgs.srv import *
+from vigir_teleop_planning_msgs.srv import *
 
 '''
 Created on 04.12.2013
