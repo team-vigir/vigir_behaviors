@@ -5,7 +5,7 @@ import rospy
 from flexbe_core import EventState, Logger
 from flexbe_core.proxy import ProxyPublisher
 
-from flor_ocs_msgs.msg import OCSLogging
+from vigir_ocs_msgs.msg import OCSLogging
 
 
 """Created on Oct. 17, 2014
