@@ -10,13 +10,13 @@ import roslib; roslib.load_manifest('vigir_behavior_exploration_demo')
 from flexbe_core import Behavior, Autonomy, OperatableStateMachine, Logger
 from flexbe_states.calculation_state import CalculationState
 from flexbe_states.flexible_calculation_state import FlexibleCalculationState
-from flexbe_atlas_states.plan_footsteps_state import PlanFootstepsState
+from vigir_flexbe_states.plan_footsteps_state import PlanFootstepsState
 from flexbe_states.operator_decision_state import OperatorDecisionState
 from flexbe_states.log_state import LogState
-from flexbe_atlas_states.execute_step_plan_action_state import ExecuteStepPlanActionState
-from flexbe_atlas_states.send_to_operator_state import SendToOperatorState
-from flexbe_atlas_states.get_camera_image_state import GetCameraImageState
-from flexbe_atlas_states.get_laserscan_state import GetLaserscanState
+from vigir_flexbe_states.execute_step_plan_action_state import ExecuteStepPlanActionState
+from vigir_flexbe_states.send_to_operator_state import SendToOperatorState
+from vigir_flexbe_states.get_camera_image_state import GetCameraImageState
+from vigir_flexbe_states.get_laserscan_state import GetLaserscanState
 # Additional imports can be added inside the following tags
 # [MANUAL_IMPORT]
 import random

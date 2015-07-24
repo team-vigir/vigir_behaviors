@@ -1,14 +1,14 @@
 <package>
-  <name>flexbe_atlas_states</name>
+  <name>vigir_flexbe_states</name>
   <version>1.0.0</version>
   <description>
-     flexbe_atlas_states provides a collection of predefined ATLAS-specific states.
+     vigir_flexbe_states provides a collection of predefined ViGIR-specific states.
      Feel free to add new states.
   </description>
   <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
   <license>BSD</license>
 
-  <url>http://ros.org/wiki/flexbe_atlas_states</url>
+  <url>http://ros.org/wiki/vigir_flexbe_states</url>
   <author>Philipp Schillinger</author>
 
   <buildtool_depend>catkin</buildtool_depend>

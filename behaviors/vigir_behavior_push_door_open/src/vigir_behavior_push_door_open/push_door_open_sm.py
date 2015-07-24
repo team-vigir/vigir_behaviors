@@ -9,7 +9,7 @@
 import roslib; roslib.load_manifest('vigir_behavior_push_door_open')
 from flexbe_core import Behavior, Autonomy, OperatableStateMachine, Logger
 from flexbe_states.operator_decision_state import OperatorDecisionState
-from flexbe_atlas_states.moveit_predefined_pose_state import MoveitPredefinedPoseState
+from vigir_flexbe_states.moveit_predefined_pose_state import MoveitPredefinedPoseState
 from flexbe_states.log_state import LogState
 from flexbe_states.calculation_state import CalculationState
 from flexbe_states.decision_state import DecisionState

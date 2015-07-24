@@ -9,12 +9,12 @@
 import roslib; roslib.load_manifest('vigir_behavior_pickup_object')
 from flexbe_core import Behavior, Autonomy, OperatableStateMachine, Logger
 from vigir_behavior_grasp_object.grasp_object_sm import GraspObjectSM
-from flexbe_atlas_states.attach_object_state import AttachObjectState
-from flexbe_atlas_states.get_wrist_pose_state import GetWristPoseState
+from vigir_flexbe_states.attach_object_state import AttachObjectState
+from vigir_flexbe_states.get_wrist_pose_state import GetWristPoseState
 from flexbe_states.calculation_state import CalculationState
-from flexbe_atlas_states.plan_endeffector_cartesian_waypoints_state import PlanEndeffectorCartesianWaypointsState
-from flexbe_atlas_states.get_pose_in_frame_state import GetPoseInFrameState
-from flexbe_atlas_states.execute_trajectory_msg_state import ExecuteTrajectoryMsgState
+from vigir_flexbe_states.plan_endeffector_cartesian_waypoints_state import PlanEndeffectorCartesianWaypointsState
+from vigir_flexbe_states.get_pose_in_frame_state import GetPoseInFrameState
+from vigir_flexbe_states.execute_trajectory_msg_state import ExecuteTrajectoryMsgState
 from flexbe_states.log_state import LogState
 # Additional imports can be added inside the following tags
 # [MANUAL_IMPORT]

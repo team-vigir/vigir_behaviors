@@ -4,7 +4,7 @@ from distutils.core import setup
 from catkin_pkg.python_setup import generate_distutils_setup
 
 d = generate_distutils_setup(
-    packages = ['flexbe_atlas_states', 'flexbe_atlas_states.proxy'],
+    packages = ['vigir_flexbe_states', 'vigir_flexbe_states.proxy'],
     package_dir = {'': 'src'}
 )
 

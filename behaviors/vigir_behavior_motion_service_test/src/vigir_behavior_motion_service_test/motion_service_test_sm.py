@@ -8,7 +8,7 @@
 
 import roslib; roslib.load_manifest('vigir_behavior_motion_service_test')
 from flexbe_core import Behavior, Autonomy, OperatableStateMachine, Logger
-from flexbe_atlas_states.motion_service_state import MotionServiceState
+from vigir_flexbe_states.motion_service_state import MotionServiceState
 # Additional imports can be added inside the following tags
 # [MANUAL_IMPORT]
 

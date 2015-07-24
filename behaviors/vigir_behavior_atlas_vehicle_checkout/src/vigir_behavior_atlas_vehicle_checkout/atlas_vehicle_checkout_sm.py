@@ -8,10 +8,10 @@
 
 import roslib; roslib.load_manifest('vigir_behavior_atlas_vehicle_checkout')
 from flexbe_core import Behavior, Autonomy, OperatableStateMachine, Logger
-from flexbe_atlas_states.change_control_mode_action_state import ChangeControlModeActionState
-from flexbe_atlas_states.moveit_predefined_pose_state import MoveitPredefinedPoseState
-from flexbe_atlas_states.tilt_head_state import TiltHeadState
-from flexbe_atlas_states.finger_configuration_state import FingerConfigurationState
+from vigir_flexbe_states.change_control_mode_action_state import ChangeControlModeActionState
+from vigir_flexbe_states.moveit_predefined_pose_state import MoveitPredefinedPoseState
+from vigir_flexbe_states.tilt_head_state import TiltHeadState
+from vigir_flexbe_states.finger_configuration_state import FingerConfigurationState
 from flexbe_states.log_state import LogState
 # Additional imports can be added inside the following tags
 # [MANUAL_IMPORT]

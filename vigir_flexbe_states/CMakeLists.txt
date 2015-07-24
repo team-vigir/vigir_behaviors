@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(flexbe_atlas_states)
+project(vigir_flexbe_states)
 
 find_package(catkin REQUIRED)
 

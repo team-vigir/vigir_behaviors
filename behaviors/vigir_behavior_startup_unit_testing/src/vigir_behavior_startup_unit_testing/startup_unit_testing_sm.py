@@ -8,11 +8,11 @@
 
 import roslib; roslib.load_manifest('vigir_behavior_startup_unit_testing')
 from flexbe_core import Behavior, Autonomy, OperatableStateMachine, Logger
-from flexbe_atlas_states.check_current_control_mode_state import CheckCurrentControlModeState
+from vigir_flexbe_states.check_current_control_mode_state import CheckCurrentControlModeState
 from flexbe_states.start_record_logs_state import StartRecordLogsState
-from flexbe_atlas_states.change_control_mode_action_state import ChangeControlModeActionState
+from vigir_flexbe_states.change_control_mode_action_state import ChangeControlModeActionState
 from flexbe_states.stop_record_logs_state import StopRecordLogsState
-from flexbe_atlas_states.execute_trajectory_state import ExecuteTrajectoryState
+from vigir_flexbe_states.execute_trajectory_state import ExecuteTrajectoryState
 from vigir_behavior_praying_mantis_calibration.praying_mantis_calibration_sm import PrayingMantisCalibrationSM
 # Additional imports can be added inside the following tags
 # [MANUAL_IMPORT]

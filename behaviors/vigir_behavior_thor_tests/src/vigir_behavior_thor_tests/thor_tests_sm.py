@@ -8,8 +8,8 @@
 
 import roslib; roslib.load_manifest('vigir_behavior_thor_tests')
 from flexbe_core import Behavior, Autonomy, OperatableStateMachine, Logger
-from flexbe_atlas_states.change_control_mode_action_state import ChangeControlModeActionState
-from flexbe_atlas_states.moveit_predefined_pose_state import MoveitPredefinedPoseState
+from vigir_flexbe_states.change_control_mode_action_state import ChangeControlModeActionState
+from vigir_flexbe_states.moveit_predefined_pose_state import MoveitPredefinedPoseState
 from flexbe_states.operator_decision_state import OperatorDecisionState
 from flexbe_states.log_state import LogState
 # Additional imports can be added inside the following tags
