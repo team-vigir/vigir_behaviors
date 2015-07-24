@@ -1,14 +1,14 @@
 <package>
-  <name>flexbe_behaviors</name>
+  <name>vigir_flexbe_behaviors</name>
   <version>1.0.0</version>
   <description>
-     flexbe_behaviors references all implemented behaviors.
+     vigir_flexbe_behaviors references all implemented behaviors.
 
   </description>
   <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
   <license>BSD</license>
 
-  <url>http://ros.org/wiki/flexbe_behaviors</url>
+  <url>http://ros.org/wiki/vigir_flexbe_behaviors</url>
   <author>Philipp Schillinger</author>
 
   <buildtool_depend>catkin</buildtool_depend>
@@ -80,8 +80,4 @@
   <run_depend>vigir_behavior_surprise_push_button</run_depend>
   <run_depend>vigir_behavior_surprise_plug</run_depend>
   <run_depend>vigir_behavior_surprise_run_1_thor</run_depend>
-  <run_depend>behavior_system_identification_tests</run_depend>
-  <run_depend>behavior_praying_mantis_calibration</run_depend>
-  <run_depend>behavior_new_system_identification_tests</run_depend>
-  <run_depend>behavior_stabilized_mantis_calibration</run_depend>
 </package>

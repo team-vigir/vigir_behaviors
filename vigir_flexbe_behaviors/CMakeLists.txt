@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(flexbe_behaviors)
+project(vigir_flexbe_behaviors)
 
 find_package(catkin REQUIRED)
 

@@ -34,8 +34,8 @@ from trajectory_msgs.msg import *
 
 from flexbe_core.proxy import ProxyPublisher
 
-from flexbe_behaviors.atlas_definitions import AtlasDefinitions
-from flexbe_behaviors.atlas_functions import AtlasFunctions
+from vigir_flexbe_behaviors.atlas_definitions import AtlasDefinitions
+from vigir_flexbe_behaviors.atlas_functions import AtlasFunctions
 # [/MANUAL_IMPORT]
 
 
