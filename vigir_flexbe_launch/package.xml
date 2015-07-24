@@ -1,14 +1,14 @@
 <package>
-  <name>flexbe_launch</name>
+  <name>vigir_flexbe_launch</name>
   <version>1.0.0</version>
   <description>
-     flexbe_behaviors references all implemented behaviors.
+     vigir_flexbe_launch offers launch files for starting FlexBE with the correct configuration.
 
   </description>
   <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
   <license>BSD</license>
 
-  <url>http://ros.org/wiki/flexbe_launch</url>
+  <url>http://ros.org/wiki/vigir_flexbe_launch</url>
   <author>Philipp Schillinger</author>
 
   <buildtool_depend>catkin</buildtool_depend>

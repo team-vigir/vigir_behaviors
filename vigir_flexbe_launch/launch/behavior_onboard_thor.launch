@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<launch>
+
+<rosparam command="load" ns="behavior" file="$(find flexbe_behaviors)/config/robot_config_thor.yaml" />
+
+<include file="$(find flexbe_onboard)/launch/behavior_onboard.launch" />
+
+</launch>

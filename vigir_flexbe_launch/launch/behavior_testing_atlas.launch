@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+
+<include file="$(find flexbe_launch)/launch/behavior_ocs.launch" />
+<include file="$(find flexbe_launch)/launch/behavior_onboard_atlas.launch" />
+
+</launch>
