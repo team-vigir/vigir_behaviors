@@ -6,7 +6,7 @@ import math
 import rospy
 
 from flexbe_core import EventState, Logger
-from flexbe_atlas_states.proxy import ProxyMoveitClient
+from vigir_flexbe_states.proxy import ProxyMoveitClient
 from flexbe_core.proxy.proxy_service_caller import ProxyServiceCaller
 
 from vigir_object_template_msgs.msg import *

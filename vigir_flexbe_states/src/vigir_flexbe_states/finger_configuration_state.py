@@ -10,7 +10,7 @@ from trajectory_msgs.msg import *
 from flexbe_core import EventState, Logger
 from flexbe_core.proxy import ProxyActionClient
 
-from flexbe_atlas_states.hand_trajectory_state import HandTrajectoryState
+from vigir_flexbe_states.msg import HandTrajectoryState
 
 '''
 Created on 04/07/2015

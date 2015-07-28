@@ -2,7 +2,7 @@
 
 from flexbe_core import EventState, Logger
 from flexbe_core.proxy import ProxySubscriberCached
-from flor_control_msgs.msg._FlorControlMode import FlorControlMode
+from vigir_ocs_msgs.msg import OCSControlMode
 
 '''
 Created on 10/28/2014

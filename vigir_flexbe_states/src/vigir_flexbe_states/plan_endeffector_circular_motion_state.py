@@ -3,7 +3,7 @@
 import rospy
 
 from flexbe_core import EventState, Logger
-from flexbe_atlas_states.proxy import ProxyMoveitClient
+from vigir_flexbe_states.proxy import ProxyMoveitClient
 
 '''
 Created on 30.11.2013

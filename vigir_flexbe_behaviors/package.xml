@@ -80,4 +80,12 @@
   <run_depend>vigir_behavior_surprise_push_button</run_depend>
   <run_depend>vigir_behavior_surprise_plug</run_depend>
   <run_depend>vigir_behavior_surprise_run_1_thor</run_depend>
+  <run_depend>behavior_cut_hole_in_wall</run_depend>
+  <run_depend>behavior_walk_and_grasp_demo</run_depend>
+  <run_depend>behavior_walk_around</run_depend>
+  <run_depend>behavior_surprise_plug</run_depend>
+  <run_depend>behavior_grasp_object</run_depend>
+  <run_depend>behavior_flexbe_test_behavior</run_depend>
+  <run_depend>behavior_simple_footstep_test</run_depend>
+  <run_depend>behavior_stand_up_behavior</run_depend>
 </package>
