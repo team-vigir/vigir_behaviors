@@ -88,4 +88,6 @@
   <run_depend>behavior_flexbe_test_behavior</run_depend>
   <run_depend>behavior_simple_footstep_test</run_depend>
   <run_depend>behavior_stand_up_behavior</run_depend>
+  <run_depend>behavior_open_door_atlas</run_depend>
+  <run_depend>behavior_turn_valve</run_depend>
 </package>

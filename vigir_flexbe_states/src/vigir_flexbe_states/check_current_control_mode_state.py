@@ -2,7 +2,7 @@
 
 from flexbe_core import EventState, Logger
 from flexbe_core.proxy import ProxySubscriberCached
-from vigir_ocs_msgs.msg import OCSControlMode
+from vigir_atlas_control_msgs.msg import VigirAtlasControlMode
 
 '''
 Created on 10/28/2014
@@ -47,7 +47,7 @@ class CheckCurrentControlModeState(EventState):
 		
 		self._status_topic = '/flor/controller/mode'
 		
-		self._sub = ProxySubscriberCached({self._status_topic: FlorControlMode})
+		self._sub = ProxySubscriberCached({self._status_topic: VigirAtlasControlMode})
 		
 		self._sub.make_persistant(self._status_topic)
 		
