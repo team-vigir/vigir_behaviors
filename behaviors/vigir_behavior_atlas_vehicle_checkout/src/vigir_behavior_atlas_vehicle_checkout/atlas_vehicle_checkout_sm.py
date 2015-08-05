@@ -16,7 +16,7 @@ from flexbe_states.log_state import LogState
 # Additional imports can be added inside the following tags
 # [MANUAL_IMPORT]
 
-from flor_control_msgs.msg import FlorRobotStatus
+from vigir_control_msgs.msg import VigirRobotStatus
 from flexbe_core.proxy import ProxySubscriberCached
 
 # [/MANUAL_IMPORT]

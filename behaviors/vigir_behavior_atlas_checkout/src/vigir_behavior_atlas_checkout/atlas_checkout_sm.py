@@ -20,7 +20,7 @@ from vigir_flexbe_states.tilt_head_state import TiltHeadState
 # Additional imports can be added inside the following tags
 # [MANUAL_IMPORT]
 
-from flor_control_msgs.msg import FlorRobotStatus
+from vigir_control_msgs.msg import VigirRobotStatus
 from flexbe_core.proxy import ProxySubscriberCached
 
 # [/MANUAL_IMPORT]
@@ -49,7 +49,7 @@ class ATLAScheckoutSM(Behavior):
 		# [MANUAL_INIT]
 
 		self._status_topic = '/flor/controller/robot_status'
-		self._sub =  ProxySubscriberCached({self._status_topic: FlorRobotStatus})
+		self._sub =  ProxySubscriberCached({self._status_topic: VigirRobotStatus})
 		self._sub.make_persistant(self._status_topic)
 		
 		# [/MANUAL_INIT]
