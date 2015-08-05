@@ -6,7 +6,7 @@ from flexbe_core import EventState, Logger
 
 from flexbe_core.proxy import ProxyPublisher
 
-from flor_control_msgs.msg import FlorRobotStateCommand
+from vigir_control_msgs.msg import VigirRobotStateCommand
 
 '''
 Created on 05/23/2015
@@ -39,7 +39,7 @@ class RobotStateCommandState(EventState):
 		super(RobotStateCommandState, self).__init__(outcomes = ['done', 'failed'])
 
 		self._topic = '/flor/controller/robot_state_command'
-		self._pub = ProxyPublisher({self._topic: FlorRobotStateCommand})
+		self._pub = ProxyPublisher({self._topic: VigirRobotStateCommand})
 
 		self._command = command
 
@@ -57,7 +57,7 @@ class RobotStateCommandState(EventState):
 		self._failed = False
 
 		try:
-			command_msg = FlorRobotStateCommand(state_command = self._command)
+			command_msg = VigirRobotStateCommand(state_command = self._command)
 			self._pub.publish(self._topic, command_msg)
 		
 		except Exception as e:

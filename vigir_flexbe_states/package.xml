@@ -25,7 +25,7 @@
   <run_depend>moveit_commander</run_depend>
 
   <!-- Some of these are probably obsolete -->
-  <run_depend>flor_control_msgs</run_depend>
+  <run_depend>vigir_control_msgs</run_depend>
   <run_depend>vigir_ocs_msgs</run_depend>
   <run_depend>vigir_grasp_msgs</run_depend>
 
