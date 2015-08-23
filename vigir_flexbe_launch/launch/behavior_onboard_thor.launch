@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 
 <launch>
-
+  
+<rosparam param="behaviors_package">"vigir_flexbe_behaviors"</rosparam>
 <rosparam command="load" ns="behavior" file="$(find vigir_flexbe_behaviors)/config/robot_config_thor.yaml" />
 
 <include file="$(find flexbe_onboard)/launch/behavior_onboard.launch" />
