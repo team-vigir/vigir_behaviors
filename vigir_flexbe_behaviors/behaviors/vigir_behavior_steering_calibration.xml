@@ -23,7 +23,7 @@
 
 		<param type="text" name="save_path" default="/save123.yaml" label="save_path" hint="Save path relative to target ROS package" />
 
-		<param type="enum" name="hand_side" default="left" label="hand_side" hint="Which hand is used for steering (left / right)">
+		<param type="enum" name="hand_side" default="right" label="hand_side" hint="Which hand is used for steering (left / right)">
 			<option value="left" />
 			<option value="right" />
 		</param>

@@ -25,6 +25,8 @@ import rospy
 from rospkg import RosPack
 
 import yaml
+from vigir_ocs_msgs.srv import *
+from geometry_msgs.msg import PoseStamped
 # [/MANUAL_IMPORT]
 
 
@@ -45,7 +47,7 @@ class SteeringCalibrationSM(Behavior):
 		# parameters of this behavior
 		self.add_parameter('angle_increment', 30)
 		self.add_parameter('save_path', '/save123.yaml')
-		self.add_parameter('hand_side', 'left')
+		self.add_parameter('hand_side', 'right')
 		self.add_parameter('save_ros_package', 'thor_mang_driving_controller')
 		self.add_parameter('move_to_poses', False)
 
@@ -191,8 +193,8 @@ class SteeringCalibrationSM(Behavior):
 			# x:61 y:59
 			OperatableStateMachine.add('Notify_Execution_Started',
 										LogState(text="Execution has started. Consider making modifications if this is a re-run.", severity=Logger.REPORT_HINT),
-										transitions={'done': 'Get_Template_Affordance'},
-										autonomy={'done': Autonomy.High})
+										transitions={'done': 'Get_Reference_Point'},
+										autonomy={'done': Autonomy.Off})
 
 			# x:27 y:165
 			OperatableStateMachine.add('Get_Template_Affordance',
@@ -233,6 +235,13 @@ class SteeringCalibrationSM(Behavior):
 										transitions={'finished': 'Decide_Save', 'failed': 'Decide_Save'},
 										autonomy={'finished': Autonomy.Inherit, 'failed': Autonomy.Inherit},
 										remapping={'wheel_affordance': 'wheel_affordance', 'hand_side': 'hand_side', 'reference_point': 'reference_point', 'move_to_poses': 'move_to_poses'})
+
+			# x:237 y:97
+			OperatableStateMachine.add('Get_Reference_Point',
+										CalculationState(calculation=self.get_reference_point),
+										transitions={'done': 'Get_Template_Affordance'},
+										autonomy={'done': Autonomy.Off},
+										remapping={'input_value': 'hand_side', 'output_value': 'reference_point'})
 
 
 		return _state_machine
@@ -315,9 +324,34 @@ class SteeringCalibrationSM(Behavior):
 		try:
 			joint_ids = [joint_names.index(joint_name) for joint_name in self._state_machine.userdata.save_joints]
 		except ValueError as e:
-			print 'Some joint was not found in received joint state:\n%s' % e
+			Logger.logwarn('Some joint was not found in received joint state:\n%s' % e)
 			return None
 
 		current_positions = [round(joint_values[joint_id], 4) for joint_id in joint_ids]
 		return current_positions
+    
+	def get_reference_point(self, hand_side):
+		rospy.wait_for_service('wrist_transform')
+		
+		try:
+			get_wrist_transform = rospy.ServiceProxy('wrist_transform', OCSRequestWristTransform)
+			
+			if ( hand_side == 'left'):
+				wrist_transform = get_wrist_transform(OCSRequestWristTransformRequest.L_HAND_T_PALM)
+				frame = 'l_hand'
+			else:
+				wrist_transform = get_wrist_transform(OCSRequestWristTransformRequest.R_HAND_T_PALM)
+				frame = 'r_hand'
+			
+			reference_point = PoseStamped()
+			reference_point.header.frame_id = frame
+			reference_point.pose = wrist_transform.transform			
+			Logger.loginfo('Receive wrist_transform: %s' % str(reference_point))
+		
+		except rospy.ServiceException, e:
+			Logger.logerror("Service call failed: %s"%e)
+			reference_point = None
+		
+		return reference_point
+		
 	# [/MANUAL_FUNC]
