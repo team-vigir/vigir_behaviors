@@ -11,6 +11,7 @@ from flexbe_core.proxy.proxy_service_caller import ProxyServiceCaller
 
 from vigir_object_template_msgs.msg import *
 from vigir_object_template_msgs.srv import *
+from geometry_msgs.msg import Point
 
 '''
 Created on 04/09/2015
@@ -21,9 +22,12 @@ class PlanAffordanceState(EventState):
     '''
     Plans for a given affordance without collision avoidance.
 
-    -- vel_scaling          float               Scales the velocity of the planned trajectory,
-                                                lower values for slower trajectories.
-    -- planner_id           string              Sets the ID of the planner to use (MoveIt planner id or "drake" - default = "RRTConnectkConfigDefault")
+    -- vel_scaling             float                Scales the velocity of the planned trajectory,
+                                                    lower values for slower trajectories.
+    -- planner_id              string               Sets the ID of the planner to use (MoveIt planner id or "drake" - default = "RRTConnectkConfigDefault")
+    -- drake_sample_rate       float                Sample rate for Drake's result trajectory (in Hz, default = 4.0)
+    -- drake_orientation_type  int                  How should the eef-orientation be handled (see ExtendedPlanningOptions)
+    -- drake_link_axis         float[]              Target axis to keep (only for drake_orientation_type == ORIENTATION_AXIS_ONLY
 
     ># affordance           Affordance          A message as defined in vigir_object_template_msgs containing all required information.
     ># hand                 string              The hand which should execute the given affordance.
@@ -43,7 +47,7 @@ class PlanAffordanceState(EventState):
     LEFT_HAND = 'left'
     RIGHT_HAND = 'right'
     
-    def __init__(self, vel_scaling = 0.1, planner_id = "RRTConnectkConfigDefault"):
+    def __init__(self, vel_scaling = 0.1, planner_id = "RRTConnectkConfigDefault", drake_sample_rate = 4.0, drake_orientation_type = 2, drake_link_axis = [0, 0, 1]):
         '''Constructor'''
         super(PlanAffordanceState, self).__init__(outcomes = ['done', 'incomplete', 'failed'],
                                                   input_keys = ['affordance', 'hand', 'reference_point'],
@@ -59,6 +63,10 @@ class PlanAffordanceState(EventState):
 
         self._vel_scaling = vel_scaling
         self._planner_id = planner_id
+        
+        self._drake_sample_rate = drake_sample_rate
+        self._drake_orientation_type = drake_orientation_type
+        self._drake_link_axis = Point( x = drake_link_axis[0], y = drake_link_axis[1], z = drake_link_axis[2] )
 
         self._failed = False
         self._done = False
@@ -160,12 +168,18 @@ class PlanAffordanceState(EventState):
         self._client.set_collision_avoidance(True)
         self._client.set_execute_incomplete_plans(True)
         self._client.set_keep_orientation(affordance.keep_orientation)
+        
         #Set reference_point and frame, if provided. Defaults to palm.
         if userdata.reference_point is not None:
             self._client.set_reference_point(
                         pose = userdata.reference_point.pose,
                         frame_id = userdata.reference_point.header.frame_id)
-
+                
+        #Set Drake specific options        
+        self._client.set_drake_target_orientation_type(self._drake_orientation_type)
+        self._client.set_drake_target_link_axis(self._drake_link_axis)
+        self._client.set_drake_trajectory_sample_rate(self._drake_sample_rate)        
+  
         try:
             self._client.start_planning()
         except Exception as e:

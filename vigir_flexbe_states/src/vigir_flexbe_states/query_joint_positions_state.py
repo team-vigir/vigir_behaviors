@@ -39,7 +39,13 @@ class QueryJointPositionsState(EventState):
 		super(QueryJointPositionsState, self).__init__(outcomes = ['retrieved', 'failed'],
 												   	   output_keys = ['joint_config'])
 		
-		self._srv_topic = '/joint_controllers/' + side + '_arm_' + \
+		if not rospy.has_param("behavior/joint_controllers_name"):
+			Logger.logerr("Need to specify parameter behavior/joint_controllers_name at the parameter server")
+			return
+		
+		controller_namespace = rospy.get_param("behavior/joint_controllers_name")
+		
+		self._srv_topic = '/' + controller_namespace + '/' + side + '_arm_' + \
 						  controller + '/query_state'
 		
 		self._srv = ProxyServiceCaller({self._srv_topic: QueryTrajectoryState})

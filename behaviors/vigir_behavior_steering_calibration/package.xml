@@ -1,0 +1,18 @@
+<package>
+  <name>vigir_behavior_steering_calibration</name>
+  <version>1.0.0</version>
+  <description>
+     Calibrates the steering motion necessary for the first DRC finals task (driving)
+  </description>
+  <maintainer email="schillinger@sim.tu-darmstadt.de">Philipp Schillinger</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/vigir_behavior_steering_calibration</url>
+  <author>Achim Stein</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy</run_depend>
+  <run_depend>flexbe_core</run_depend>
+  <run_depend>vigir_flexbe_states</run_depend>  
+</package>
