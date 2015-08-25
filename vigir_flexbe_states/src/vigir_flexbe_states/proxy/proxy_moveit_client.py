@@ -38,6 +38,7 @@ class ProxyMoveitClient(object):
         self._move_group = ""
         self._result = None
         self._planner_id = "RRTConnectkConfigDefault"
+        self._target_link_axis = []
 
 
     def new_goal(self, move_group):
@@ -49,8 +50,15 @@ class ProxyMoveitClient(object):
         self._goal.request.num_planning_attempts = 1
         self._goal.request.planner_id = self._planner_id
         self._goal.extended_planning_options.target_motion_type = ExtendedPlanningOptions.TYPE_FREE_MOTION
-
+        
+        self._goal.extended_planning_options.check_self_collisions = False
+        self._goal.extended_planning_options.target_orientation_type = ExtendedPlanningOptions.ORIENTATION_FULL;
+        self._goal.extended_planning_options.trajectory_sample_rate = 4.0;       
+        
     def start_planning(self):
+        for i in range(len(self._goal.extended_planning_options.target_poses)):
+            self._goal.extended_planning_options.target_link_axis.append(self._target_link_axis)
+            
         self._goal.planning_options.plan_only = True
         ProxyMoveitClient._client.send_goal(ProxyMoveitClient._action_topic, self._goal)
         self._goal = None
@@ -92,7 +100,25 @@ class ProxyMoveitClient(object):
         
     def set_planner_id(self, planner_id):
         self._planner_id = planner_id
-        self._goal.request.planner_id = planner_id        
+        self._goal.request.planner_id = planner_id  
+        
+    def set_drake_target_link_names(self, link_names):
+        self._goal.extended_planning_options.target_link_names = link_names
+        
+    def set_drake_target_pose_times(self, pose_times):
+        self._goal.extended_planning_options.target_pose_times = pose_times
+            
+    def set_drake_check_self_collisions(self, check_self_collisions):
+        self._goal.extended_planning_options.check_self_collisions = check_self_collisions
+            
+    def set_drake_target_orientation_type(self, orientation_type):
+        self._goal.extended_planning_options.target_orientation_type = orientation_type
+        
+    def set_drake_trajectory_sample_rate(self, sample_rate):
+        self._goal.extended_planning_options.trajectory_sample_rate = sample_rate
+        
+    def set_drake_target_link_axis(self, link_axis):		
+        self._target_link_axis = link_axis;
 
     def add_joint_values(self, joint_values):
         joint_names = ProxyMoveitClient._robot.get_joint_names(self._move_group)
