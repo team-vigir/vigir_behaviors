@@ -26,7 +26,7 @@ class PlanAffordanceState(EventState):
                                                     lower values for slower trajectories.
     -- planner_id              string               Sets the ID of the planner to use (MoveIt planner id or "drake" - default = "RRTConnectkConfigDefault")
     -- drake_sample_rate       float                Sample rate for Drake's result trajectory (in Hz, default = 4.0)
-    -- drake_orientation_type  int                  How should the eef-orientation be handled (see ExtendedPlanningOptions)
+    -- drake_orientation_type  int                  How should the eef-orientation be handled (see ExtendedPlanningOptions, 0 = full, 1 = axis only, 2 = ignore)
     -- drake_link_axis         float[]              Target axis to keep (only for drake_orientation_type == ORIENTATION_AXIS_ONLY
 
     ># affordance           Affordance          A message as defined in vigir_object_template_msgs containing all required information.

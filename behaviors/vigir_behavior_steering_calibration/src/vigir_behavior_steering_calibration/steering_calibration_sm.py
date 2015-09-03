@@ -17,6 +17,7 @@ from vigir_flexbe_states.plan_affordance_state import PlanAffordanceState
 from flexbe_states.decision_state import DecisionState
 from vigir_flexbe_states.execute_trajectory_msg_state import ExecuteTrajectoryMsgState
 from vigir_flexbe_states.query_joint_positions_state import QueryJointPositionsState
+from vigir_flexbe_states.get_tf_transform_state import GetTFTransformState
 # Additional imports can be added inside the following tags
 # [MANUAL_IMPORT]
 import math
@@ -25,7 +26,6 @@ import rospy
 from rospkg import RosPack
 
 import yaml
-from vigir_ocs_msgs.srv import *
 from geometry_msgs.msg import PoseStamped
 # [/MANUAL_IMPORT]
 
@@ -64,7 +64,7 @@ class SteeringCalibrationSM(Behavior):
 
 	def create(self):
 		arm_controller = ExecuteTrajectoryMsgState.CONTROLLER_LEFT_ARM if self.hand_side == 'left' else ExecuteTrajectoryMsgState.CONTROLLER_RIGHT_ARM
-		# x:1234 y:456, x:77 y:585
+		# x:1234 y:456, x:92 y:189
 		_state_machine = OperatableStateMachine(outcomes=['finished', 'failed'])
 		_state_machine.userdata.hand_side = self.hand_side
 		_state_machine.userdata.reference_point = None
@@ -72,6 +72,7 @@ class SteeringCalibrationSM(Behavior):
 		_state_machine.userdata.dummy = None
 		_state_machine.userdata.save_joints = ['r_shoulder_pitch', 'r_shoulder_roll', 'r_shoulder_yaw', 'r_elbow', 'r_wrist_yaw1', 'r_wrist_roll', 'r_wrist_yaw2']
 		_state_machine.userdata.move_to_poses = self.move_to_poses
+		_state_machine.userdata.hand_offset = [0, 0, -0.065]
 
 		# Additional creation code can be added inside the following tags
 		# [MANUAL_CREATE]
@@ -118,13 +119,39 @@ class SteeringCalibrationSM(Behavior):
 										remapping={'joint_config': 'joint_config'})
 
 
-		# x:1319 y:112, x:44 y:619
-		_sm_calculate_key_frames_1 = OperatableStateMachine(outcomes=['finished', 'failed'], input_keys=['wheel_affordance', 'hand_side', 'reference_point', 'move_to_poses'])
+		# x:553 y:74, x:273 y:212
+		_sm_get_reference_point_1 = OperatableStateMachine(outcomes=['finished', 'failed'], input_keys=['hand_side'], output_keys=['reference_point'])
 
-		with _sm_calculate_key_frames_1:
+		with _sm_get_reference_point_1:
+			# x:30 y:40
+			OperatableStateMachine.add('Get_Hand_Frames',
+										CalculationState(calculation=self.get_hand_frames),
+										transitions={'done': 'Get_Reference_Point'},
+										autonomy={'done': Autonomy.Low},
+										remapping={'input_value': 'hand_side', 'output_value': 'frames'})
+
+			# x:225 y:40
+			OperatableStateMachine.add('Get_Reference_Point',
+										GetTFTransformState(),
+										transitions={'done': 'Add_Offset', 'failed': 'failed'},
+										autonomy={'done': Autonomy.Low, 'failed': Autonomy.Low},
+										remapping={'frames': 'frames', 'transform': 'reference_point'})
+
+			# x:411 y:83
+			OperatableStateMachine.add('Add_Offset',
+										CalculationState(calculation=self.add_offset),
+										transitions={'done': 'finished'},
+										autonomy={'done': Autonomy.Off},
+										remapping={'input_value': 'reference_point', 'output_value': 'reference_point'})
+
+
+		# x:1319 y:112, x:44 y:619
+		_sm_calculate_key_frames_2 = OperatableStateMachine(outcomes=['finished', 'failed'], input_keys=['wheel_affordance', 'hand_side', 'reference_point', 'move_to_poses'])
+
+		with _sm_calculate_key_frames_2:
 			# x:334 y:65
 			OperatableStateMachine.add('Plan_Wheel_Rotation',
-										PlanAffordanceState(vel_scaling=0.1, planner_id="drake", drake_sample_rate=4.0, drake_orientation_type=1, drake_link_axis=[0,0,1]),
+										PlanAffordanceState(vel_scaling=0.1, planner_id="drake", drake_sample_rate=4.0, drake_orientation_type=1, drake_link_axis=[1,0,0]),
 										transitions={'done': 'Save_Target_Arm_Pose', 'incomplete': 'Decide_Continue', 'failed': 'Decide_Continue'},
 										autonomy={'done': Autonomy.Low, 'incomplete': Autonomy.Low, 'failed': Autonomy.Low},
 										remapping={'affordance': 'wheel_affordance', 'hand': 'hand_side', 'reference_point': 'reference_point', 'joint_trajectory': 'joint_trajectory', 'plan_fraction': 'plan_fraction'})
@@ -158,9 +185,9 @@ class SteeringCalibrationSM(Behavior):
 
 
 		# x:936 y:246, x:87 y:494
-		_sm_get_template_affordance_2 = OperatableStateMachine(outcomes=['finished', 'failed'], input_keys=['hand_side'], output_keys=['wheel_affordance'])
+		_sm_get_template_affordance_3 = OperatableStateMachine(outcomes=['finished', 'failed'], input_keys=['hand_side'], output_keys=['wheel_affordance'])
 
-		with _sm_get_template_affordance_2:
+		with _sm_get_template_affordance_3:
 			# x:71 y:85
 			OperatableStateMachine.add('Request_Template_ID',
 										InputState(request=InputState.SELECTED_OBJECT_ID, message="Provide the ID of the STEERING_WHEEL template."),
@@ -196,9 +223,9 @@ class SteeringCalibrationSM(Behavior):
 										transitions={'done': 'Get_Reference_Point'},
 										autonomy={'done': Autonomy.Off})
 
-			# x:27 y:165
+			# x:249 y:210
 			OperatableStateMachine.add('Get_Template_Affordance',
-										_sm_get_template_affordance_2,
+										_sm_get_template_affordance_3,
 										transitions={'finished': 'Init_Affordance', 'failed': 'failed'},
 										autonomy={'finished': Autonomy.Inherit, 'failed': Autonomy.Inherit},
 										remapping={'hand_side': 'hand_side', 'wheel_affordance': 'wheel_affordance'})
@@ -209,7 +236,7 @@ class SteeringCalibrationSM(Behavior):
 										transitions={'done': 'finished'},
 										autonomy={'done': Autonomy.High})
 
-			# x:325 y:170
+			# x:316 y:315
 			OperatableStateMachine.add('Init_Affordance',
 										CalculationState(calculation=self.init_affordance),
 										transitions={'done': 'Calculate_Key_Frames'},
@@ -231,17 +258,17 @@ class SteeringCalibrationSM(Behavior):
 
 			# x:471 y:319
 			OperatableStateMachine.add('Calculate_Key_Frames',
-										_sm_calculate_key_frames_1,
+										_sm_calculate_key_frames_2,
 										transitions={'finished': 'Decide_Save', 'failed': 'Decide_Save'},
 										autonomy={'finished': Autonomy.Inherit, 'failed': Autonomy.Inherit},
 										remapping={'wheel_affordance': 'wheel_affordance', 'hand_side': 'hand_side', 'reference_point': 'reference_point', 'move_to_poses': 'move_to_poses'})
 
-			# x:237 y:97
+			# x:267 y:58
 			OperatableStateMachine.add('Get_Reference_Point',
-										CalculationState(calculation=self.get_reference_point),
-										transitions={'done': 'Get_Template_Affordance'},
-										autonomy={'done': Autonomy.Off},
-										remapping={'input_value': 'hand_side', 'output_value': 'reference_point'})
+										_sm_get_reference_point_1,
+										transitions={'finished': 'Get_Template_Affordance', 'failed': 'failed'},
+										autonomy={'finished': Autonomy.Inherit, 'failed': Autonomy.Inherit},
+										remapping={'hand_side': 'hand_side', 'reference_point': 'reference_point'})
 
 
 		return _state_machine
@@ -330,28 +357,21 @@ class SteeringCalibrationSM(Behavior):
 		current_positions = [round(joint_values[joint_id], 4) for joint_id in joint_ids]
 		return current_positions
     
-	def get_reference_point(self, hand_side):
-		rospy.wait_for_service('wrist_transform')
+	def get_hand_frames(self, hand_side):		
+		wrist_param = "/" + hand_side + "_wrist_link"
+		palm_param = "/" + hand_side + "_palm_link"
 		
-		try:
-			get_wrist_transform = rospy.ServiceProxy('wrist_transform', OCSRequestWristTransform)
-			
-			if ( hand_side == 'left'):
-				wrist_transform = get_wrist_transform(OCSRequestWristTransformRequest.L_HAND_T_PALM)
-				frame = 'l_hand'
-			else:
-				wrist_transform = get_wrist_transform(OCSRequestWristTransformRequest.R_HAND_T_PALM)
-				frame = 'r_hand'
-			
-			reference_point = PoseStamped()
-			reference_point.header.frame_id = frame
-			reference_point.pose = wrist_transform.transform			
-			Logger.loginfo('Receive wrist_transform: %s' % str(reference_point))
+		Logger.loginfo
+		hand_frames = ['', ''];
+		hand_frames[0] = rospy.get_param(wrist_param, hand_side[0] + "_hand")
+		hand_frames[1] = rospy.get_param(palm_param, hand_side[0] + "_palm")
 		
-		except rospy.ServiceException, e:
-			Logger.logerror("Service call failed: %s"%e)
-			reference_point = None
-		
+		return hand_frames;
+	
+	def add_offset(self, reference_point):
+		reference_point.pose.position.x = reference_point.pose.position.x + self._state_machine.userdata.hand_offset[0]
+		reference_point.pose.position.y = reference_point.pose.position.y + self._state_machine.userdata.hand_offset[1]
+		reference_point.pose.position.z = reference_point.pose.position.z + self._state_machine.userdata.hand_offset[2]
 		return reference_point
-		
+	
 	# [/MANUAL_FUNC]
