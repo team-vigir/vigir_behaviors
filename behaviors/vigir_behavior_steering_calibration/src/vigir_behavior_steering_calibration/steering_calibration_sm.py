@@ -45,11 +45,13 @@ class SteeringCalibrationSM(Behavior):
 		self.name = 'Steering Calibration'
 
 		# parameters of this behavior
-		self.add_parameter('angle_increment', 30)
-		self.add_parameter('save_path', '/save123.yaml')
-		self.add_parameter('hand_side', 'right')
-		self.add_parameter('save_ros_package', 'thor_mang_driving_controller')
+		self.add_parameter('angle_increment_deg', 30)
+		self.add_parameter('save_path', '/config/steering/steering_calibration_behavior.yaml')
+		self.add_parameter('hand_side', 'left')
+		self.add_parameter('save_ros_package', 'humanoid_driving_controller')
 		self.add_parameter('move_to_poses', False)
+		self.add_parameter('start_angle_deg', 0)
+		self.add_parameter('end_angle_deg', 270)
 
 		# references to used behaviors
 
@@ -68,9 +70,9 @@ class SteeringCalibrationSM(Behavior):
 		_state_machine = OperatableStateMachine(outcomes=['finished', 'failed'])
 		_state_machine.userdata.hand_side = self.hand_side
 		_state_machine.userdata.reference_point = None
-		_state_machine.userdata.current_target_angle_deg = 0
+		_state_machine.userdata.current_target_angle_deg = self.start_angle_deg;
 		_state_machine.userdata.dummy = None
-		_state_machine.userdata.save_joints = ['r_shoulder_pitch', 'r_shoulder_roll', 'r_shoulder_yaw', 'r_elbow', 'r_wrist_yaw1', 'r_wrist_roll', 'r_wrist_yaw2']
+		_state_machine.userdata.save_joints = ['l_shoulder_pitch', 'l_shoulder_roll', 'l_shoulder_yaw', 'l_elbow', 'l_wrist_yaw1', 'l_wrist_roll', 'l_wrist_yaw2']
 		_state_machine.userdata.move_to_poses = self.move_to_poses
 		_state_machine.userdata.hand_offset = [0, 0, -0.065]
 
@@ -277,20 +279,23 @@ class SteeringCalibrationSM(Behavior):
 	# Private functions can be added inside the following tags
 	# [MANUAL_FUNC]
 	def init_affordance(self, affordance):
-		'''Initializes affordance with a 0 degree displacement angle'''
+		'''Initializes affordance with a 0 displacement angle'''
 		
-		affordance.displacement = 0.0
+		affordance.displacement = 0.0;
 		Logger.loginfo("Initialized affordance with rotation of %f degrees." % math.degrees(affordance.displacement))
 		return affordance
 	
 	def calc_rotation_angle(self, affordance):
 		'''Calculates the angle for the next planning step'''
 		if ( self._state_machine.userdata.move_to_poses ):
-			new_rotation_angle = math.radians(self.angle_increment)
+			new_rotation_angle = math.radians(self.angle_increment_deg)
 		else:
-			new_rotation_angle = affordance.displacement + math.radians(self.angle_increment);	
+			new_rotation_angle = affordance.displacement + math.radians(self.angle_increment_deg);	
 		
-		self._state_machine.userdata.current_target_angle_deg = self._state_machine.userdata.current_target_angle_deg + self.angle_increment
+		self._state_machine.userdata.current_target_angle_deg = self._state_machine.userdata.current_target_angle_deg + self.angle_increment_deg
+		while ( self._state_machine.userdata.current_target_angle_deg >= 360 ):
+			self._state_machine.userdata.current_target_angle_deg = self._state_machine.userdata.current_target_angle_deg - 360;
+		
 		affordance.displacement = new_rotation_angle
 		
 		Logger.loginfo("Next rotation step: %f degrees (%f increment from current position)" % (self._state_machine.userdata.current_target_angle_deg, math.degrees(new_rotation_angle)))
@@ -299,7 +304,13 @@ class SteeringCalibrationSM(Behavior):
 	
 	def check_continue_rotation(self, affordance):	
 		'''Check if we have made a full circle'''
-		if ( affordance.displacement > 2*math.pi ):
+		while ( self.end_angle_deg < self.start_angle_deg ):
+			self.end_angle_deg = self.end_angle_deg + 360;
+			
+		max_displacement = math.radians( abs(self.end_angle_deg - self.start_angle_deg) )
+		
+		if ( affordance.displacement > max_displacement ):
+			Logger.loginfo("All requested angles finished...")
 			return 'finished'
 		else:
 			return 'continue_rotation'

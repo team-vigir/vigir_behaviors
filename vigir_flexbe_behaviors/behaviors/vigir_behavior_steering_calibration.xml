@@ -16,21 +16,31 @@
 	<!-- Available Parameters -->
 	<params>
 
-		<param type="numeric" name="angle_increment" default="30" label="angle_increment" hint="Distance between two measurement points (in degrees)">
+		<param type="numeric" name="angle_increment_deg" default="30" label="angle_increment_deg" hint="Distance between two measurement points (in degrees)">
 			<min value="0.001" />
 			<max value="90" />
 		</param>
 
-		<param type="text" name="save_path" default="/save123.yaml" label="save_path" hint="Save path relative to target ROS package" />
+		<param type="text" name="save_path" default="/config/steering/steering_calibration_behavior.yaml" label="save_path" hint="Save path relative to target ROS package" />
 
-		<param type="enum" name="hand_side" default="right" label="hand_side" hint="Which hand is used for steering (left / right)">
+		<param type="enum" name="hand_side" default="left" label="hand_side" hint="Which hand is used for steering (left / right)">
 			<option value="left" />
 			<option value="right" />
 		</param>
 
-		<param type="text" name="save_ros_package" default="thor_mang_driving_controller" label="save_ros_package" hint="ROS package the save path is relative to" />
+		<param type="text" name="save_ros_package" default="humanoid_driving_controller" label="save_ros_package" hint="ROS package the save path is relative to" />
 
 		<param type="boolean" name="move_to_poses" default="False" label="move_to_poses" hint="Actually move the arm instead of using planned trajectory" />
+
+		<param type="numeric" name="start_angle_deg" default="0" label="start_angle_deg" hint="Calibration start angle (in °)">
+			<min value="0" />
+			<max value="360" />
+		</param>
+
+		<param type="numeric" name="end_angle_deg" default="270" label="end_angle_deg" hint="Final calibration angle (in °)">
+			<min value="0" />
+			<max value="360" />
+		</param>
 
 	</params>
 
