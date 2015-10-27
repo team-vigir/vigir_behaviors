@@ -13,10 +13,11 @@ from flexbe_states.input_state import InputState
 from vigir_flexbe_states.get_template_affordance_state import GetTemplateAffordanceState
 from flexbe_states.calculation_state import CalculationState
 from flexbe_states.operator_decision_state import OperatorDecisionState
-from vigir_flexbe_states.plan_affordance_state import PlanAffordanceState
+from vigir_flexbe_states.set_rosparam_state import SetRosParamState
 from flexbe_states.decision_state import DecisionState
 from vigir_flexbe_states.execute_trajectory_msg_state import ExecuteTrajectoryMsgState
 from vigir_flexbe_states.query_joint_positions_state import QueryJointPositionsState
+from vigir_flexbe_states.plan_affordance_state import PlanAffordanceState
 from vigir_flexbe_states.get_tf_transform_state import GetTFTransformState
 # Additional imports can be added inside the following tags
 # [MANUAL_IMPORT]
@@ -147,21 +148,20 @@ class SteeringCalibrationSM(Behavior):
 										remapping={'input_value': 'reference_point', 'output_value': 'reference_point'})
 
 
-		# x:1319 y:112, x:44 y:619
+		# x:1432 y:637, x:44 y:619
 		_sm_calculate_key_frames_2 = OperatableStateMachine(outcomes=['finished', 'failed'], input_keys=['wheel_affordance', 'hand_side', 'reference_point', 'move_to_poses'])
 
 		with _sm_calculate_key_frames_2:
-			# x:334 y:65
-			OperatableStateMachine.add('Plan_Wheel_Rotation',
-										PlanAffordanceState(vel_scaling=0.1, planner_id="drake", drake_sample_rate=4.0, drake_orientation_type=1, drake_link_axis=[1,0,0]),
-										transitions={'done': 'Save_Target_Arm_Pose', 'incomplete': 'Decide_Continue', 'failed': 'Decide_Continue'},
-										autonomy={'done': Autonomy.Low, 'incomplete': Autonomy.Low, 'failed': Autonomy.Low},
-										remapping={'affordance': 'wheel_affordance', 'hand': 'hand_side', 'reference_point': 'reference_point', 'joint_trajectory': 'joint_trajectory', 'plan_fraction': 'plan_fraction'})
+			# x:30 y:40
+			OperatableStateMachine.add('Ignore_Quasi_Static_Constraint',
+										SetRosParamState(parameter='/drake_ignore_quasi_static_constraint', value=True),
+										transitions={'done': 'Plan_Wheel_Rotation', 'failed': 'failed'},
+										autonomy={'done': Autonomy.Off, 'failed': Autonomy.Off})
 
 			# x:998 y:85
 			OperatableStateMachine.add('Continue_Rotation',
 										DecisionState(outcomes=['continue_rotation', 'finished'], conditions=self.check_continue_rotation),
-										transitions={'continue_rotation': 'Plan_Wheel_Rotation', 'finished': 'finished'},
+										transitions={'continue_rotation': 'Plan_Wheel_Rotation', 'finished': 'Reset_Quasi_Static_Constraint'},
 										autonomy={'continue_rotation': Autonomy.Low, 'finished': Autonomy.Low},
 										remapping={'input_value': 'wheel_affordance'})
 
@@ -184,6 +184,19 @@ class SteeringCalibrationSM(Behavior):
 										transitions={'finished': 'Calculate_New_Target_Angle', 'failed': 'Decide_Continue'},
 										autonomy={'finished': Autonomy.Inherit, 'failed': Autonomy.Inherit},
 										remapping={'joint_trajectory': 'joint_trajectory', 'hand_side': 'hand_side', 'move_to_poses': 'move_to_poses'})
+
+			# x:1172 y:609
+			OperatableStateMachine.add('Reset_Quasi_Static_Constraint',
+										SetRosParamState(parameter='/drake_ignore_quasi_static_constraint', value=False),
+										transitions={'done': 'finished', 'failed': 'failed'},
+										autonomy={'done': Autonomy.Off, 'failed': Autonomy.Off})
+
+			# x:334 y:65
+			OperatableStateMachine.add('Plan_Wheel_Rotation',
+										PlanAffordanceState(vel_scaling=0.1, planner_id="drake", drake_sample_rate=4.0, drake_orientation_type=1, drake_link_axis=[1,0,0]),
+										transitions={'done': 'Save_Target_Arm_Pose', 'incomplete': 'Decide_Continue', 'failed': 'Decide_Continue'},
+										autonomy={'done': Autonomy.Low, 'incomplete': Autonomy.Low, 'failed': Autonomy.Low},
+										remapping={'affordance': 'wheel_affordance', 'hand': 'hand_side', 'reference_point': 'reference_point', 'joint_trajectory': 'joint_trajectory', 'plan_fraction': 'plan_fraction'})
 
 
 		# x:936 y:246, x:87 y:494
