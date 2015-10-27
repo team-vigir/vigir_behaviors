@@ -88,9 +88,9 @@ class SteeringCalibrationSM(Behavior):
 		with _sm_save_target_arm_pose_0:
 			# x:146 y:184
 			OperatableStateMachine.add('Decide_Move_Arm',
-										DecisionState(outcomes=['move_arm', 'do_not_move'], conditions=self.decide_move_arm),
-										transitions={'move_arm': 'Move_Arm_To_Pose', 'do_not_move': 'Save_Arm_Pose_From_Trajectory'},
-										autonomy={'move_arm': Autonomy.Low, 'do_not_move': Autonomy.Low},
+										DecisionState(outcomes=['move_arm', 'do_not_move', 'abort'], conditions=self.decide_move_arm),
+										transitions={'move_arm': 'Move_Arm_To_Pose', 'do_not_move': 'Save_Arm_Pose_From_Trajectory', 'abort': 'failed'},
+										autonomy={'move_arm': Autonomy.Full, 'do_not_move': Autonomy.Low, 'abort': Autonomy.Low},
 										remapping={'input_value': 'move_to_poses'})
 
 			# x:330 y:232
