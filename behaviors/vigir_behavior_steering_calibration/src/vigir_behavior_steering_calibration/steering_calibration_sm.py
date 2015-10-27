@@ -46,7 +46,7 @@ class SteeringCalibrationSM(Behavior):
 		self.name = 'Steering Calibration'
 
 		# parameters of this behavior
-		self.add_parameter('angle_increment_deg', 30)
+		self.add_parameter('angle_increment_deg', 10)
 		self.add_parameter('save_path', '/config/steering/steering_calibration_behavior.yaml')
 		self.add_parameter('hand_side', 'left')
 		self.add_parameter('save_ros_package', 'humanoid_driving_controller')
@@ -79,7 +79,7 @@ class SteeringCalibrationSM(Behavior):
 
 		# Additional creation code can be added inside the following tags
 		# [MANUAL_CREATE]
-		
+		self.total_displacement = 0;
 		# [/MANUAL_CREATE]
 
 		# x:1136 y:74, x:130 y:480
@@ -156,7 +156,7 @@ class SteeringCalibrationSM(Behavior):
 			OperatableStateMachine.add('Ignore_Quasi_Static_Constraint',
 										SetRosParamState(parameter='/drake_ignore_quasi_static_constraint', value=True),
 										transitions={'done': 'Plan_Wheel_Rotation', 'failed': 'failed'},
-										autonomy={'done': Autonomy.Off, 'failed': Autonomy.Off})
+										autonomy={'done': Autonomy.Low, 'failed': Autonomy.Low})
 
 			# x:998 y:85
 			OperatableStateMachine.add('Continue_Rotation',
@@ -189,7 +189,7 @@ class SteeringCalibrationSM(Behavior):
 			OperatableStateMachine.add('Reset_Quasi_Static_Constraint',
 										SetRosParamState(parameter='/drake_ignore_quasi_static_constraint', value=False),
 										transitions={'done': 'finished', 'failed': 'failed'},
-										autonomy={'done': Autonomy.Off, 'failed': Autonomy.Off})
+										autonomy={'done': Autonomy.Low, 'failed': Autonomy.Low})
 
 			# x:334 y:65
 			OperatableStateMachine.add('Plan_Wheel_Rotation',
@@ -302,8 +302,10 @@ class SteeringCalibrationSM(Behavior):
 		'''Calculates the angle for the next planning step'''
 		if ( self._state_machine.userdata.move_to_poses ):
 			new_rotation_angle = math.radians(self.angle_increment_deg)
+			self.total_displacement += new_rotation_angle
 		else:
-			new_rotation_angle = affordance.displacement + math.radians(self.angle_increment_deg);	
+			new_rotation_angle = affordance.displacement + math.radians(self.angle_increment_deg)
+			self.total_displacement = new_rotation_angle
 		
 		self._state_machine.userdata.current_target_angle_deg = self._state_machine.userdata.current_target_angle_deg + self.angle_increment_deg
 		while ( self._state_machine.userdata.current_target_angle_deg >= 360 ):
@@ -322,7 +324,7 @@ class SteeringCalibrationSM(Behavior):
 			
 		max_displacement = math.radians( abs(self.end_angle_deg - self.start_angle_deg) )
 		
-		if ( affordance.displacement > max_displacement ):
+		if ( self.total_displacement > max_displacement ):
 			Logger.loginfo("All requested angles finished...")
 			return 'finished'
 		else:
@@ -380,7 +382,7 @@ class SteeringCalibrationSM(Behavior):
 
 		current_positions = [round(joint_values[joint_id], 4) for joint_id in joint_ids]
 		return current_positions
-    
+	
 	def get_hand_frames(self, hand_side):		
 		wrist_param = "/" + hand_side + "_wrist_link"
 		palm_param = "/" + hand_side + "_palm_link"

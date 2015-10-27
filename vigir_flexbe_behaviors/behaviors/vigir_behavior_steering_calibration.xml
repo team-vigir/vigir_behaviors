@@ -16,8 +16,8 @@
 	<!-- Available Parameters -->
 	<params>
 
-		<param type="numeric" name="angle_increment_deg" default="30" label="angle_increment_deg" hint="Distance between two measurement points (in degrees)">
-			<min value="0.001" />
+		<param type="numeric" name="angle_increment_deg" default="10" label="angle_increment_deg" hint="Distance between two measurement points (in degrees)">
+			<min value="1" />
 			<max value="90" />
 		</param>
 
