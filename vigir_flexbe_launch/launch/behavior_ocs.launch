@@ -11,7 +11,7 @@
 <remap from="/flexbe/operator_input/status" to="/vigir/ocs/behavior_ocs/status" />
 
 <include file="$(find flexbe_widget)/launch/behavior_ocs.launch"  >
-	<arg  name="behaviors_package" value="$(arg behaviors_package)" />
+    <arg  name="behaviors_package" value="$(arg behaviors_package)" />
 </include>
 
 </launch>
