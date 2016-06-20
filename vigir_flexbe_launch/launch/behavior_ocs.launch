@@ -2,12 +2,16 @@
 
 <launch>
 
+<arg  name="behaviors_package" default="vigir_flexbe_behaviors" />
+
 <remap from="/flexbe/operator_input/goal" to="/vigir/ocs/behavior_ocs/goal" />
 <remap from="/flexbe/operator_input/feedback" to="/vigir/ocs/behavior_ocs/feedback" />
 <remap from="/flexbe/operator_input/result" to="/vigir/ocs/behavior_ocs/result" />
 <remap from="/flexbe/operator_input/cancel" to="/vigir/ocs/behavior_ocs/cancel" />
 <remap from="/flexbe/operator_input/status" to="/vigir/ocs/behavior_ocs/status" />
 
-<include file="$(find flexbe_widget)/launch/behavior_ocs.launch" />
+<include file="$(find flexbe_widget)/launch/behavior_ocs.launch"  >
+	<arg  name="behaviors_package" value="$(arg behaviors_package)" />
+</include>
 
 </launch>
